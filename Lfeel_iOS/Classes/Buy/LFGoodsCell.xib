@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LFGoodsCell" id="gTV-IL-0wX" customClass="LFGoodsCell">
+            <rect key="frame" x="0.0" y="0.0" width="177" height="269"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="177" height="269"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z3C-Qq-Yek">
+                        <rect key="frame" x="0.0" y="0.0" width="177" height="220"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="220" id="UOr-JL-vxc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alma BB粉红皮质两用包" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GT-XH-HJi">
+                        <rect key="frame" x="0.0" y="225" width="177" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="a3A-Yg-DHk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rm_font">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥1,000/期" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrO-kX-VNg">
+                        <rect key="frame" x="0.0" y="245" width="177" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="ljw-ml-juq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="1" green="0.16852444359999999" blue="0.2711180212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rm_font">
+                                <real key="value" value="13"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWF-1z-DQe">
+                        <rect key="frame" x="133" y="0.0" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="Wlt-ch-3pj"/>
+                            <constraint firstAttribute="width" constant="44" id="me6-ns-bpN"/>
+                        </constraints>
+                        <state key="normal" image="喜欢"/>
+                        <state key="selected" image="心_2"/>
+                        <connections>
+                            <action selector="_didClickCollectBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="e7z-Yy-Uep"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="2GT-XH-HJi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1Zu-qH-e6d"/>
+                <constraint firstItem="FrO-kX-VNg" firstAttribute="top" secondItem="2GT-XH-HJi" secondAttribute="bottom" constant="5" id="BbN-ad-Vai"/>
+                <constraint firstAttribute="trailing" secondItem="2GT-XH-HJi" secondAttribute="trailing" id="Kab-us-hcy"/>
+                <constraint firstAttribute="trailing" secondItem="CWF-1z-DQe" secondAttribute="trailing" id="Oyr-J5-85I"/>
+                <constraint firstItem="z3C-Qq-Yek" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="W6o-me-R8m"/>
+                <constraint firstAttribute="trailing" secondItem="FrO-kX-VNg" secondAttribute="trailing" id="bLk-aN-a79"/>
+                <constraint firstAttribute="trailing" secondItem="z3C-Qq-Yek" secondAttribute="trailing" id="dhg-z4-q9Y"/>
+                <constraint firstItem="CWF-1z-DQe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="erN-Ul-qP3"/>
+                <constraint firstItem="z3C-Qq-Yek" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gbh-qV-Ma9"/>
+                <constraint firstItem="FrO-kX-VNg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kX1-uF-bVa"/>
+                <constraint firstItem="2GT-XH-HJi" firstAttribute="top" secondItem="z3C-Qq-Yek" secondAttribute="bottom" constant="5" id="zwj-UU-IcL"/>
+            </constraints>
+            <size key="customSize" width="154" height="275"/>
+            <connections>
+                <outlet property="_collectBtn" destination="CWF-1z-DQe" id="Dwj-pV-3wa"/>
+                <outlet property="_name" destination="2GT-XH-HJi" id="hGJ-TJ-yOM"/>
+                <outlet property="_pic" destination="z3C-Qq-Yek" id="8gl-gL-nmG"/>
+                <outlet property="_price" destination="FrO-kX-VNg" id="vWs-R7-9zi"/>
+            </connections>
+            <point key="canvasLocation" x="-79.5" y="48.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="喜欢" width="14" height="12"/>
+        <image name="心_2" width="14" height="12"/>
+    </resources>
+</document>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PFB-Gl-NVa" customClass="LFIntergerDetailCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PFB-Gl-NVa" id="coY-X1-CqO">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qnf-5y-woV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乐荟币提现" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVl-4e-dBH">
+                                <rect key="frame" x="15" y="16" width="71.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-09-09 15:21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DU-kC-F5i">
+                                <rect key="frame" x="250" y="16.5" width="110" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-P0-CWK">
+                                <rect key="frame" x="15" y="43" width="171.5" height="17"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="-4">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98039215686274506" green="0.31372549019607843" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=",">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98039215686274506" green="0.31372549019607843" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="000">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98039215686274506" green="0.31372549019607843" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="乐荟币">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98039215686274506" green="0.31372549019607843" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="，提现">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="￥">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98039215686274506" green="0.31372549019607843" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="400">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98039215686274506" green="0.31372549019607843" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SZd-P0-CWK" firstAttribute="leading" secondItem="Qnf-5y-woV" secondAttribute="leading" constant="15" id="5ks-zI-CIx"/>
+                            <constraint firstItem="eVl-4e-dBH" firstAttribute="top" secondItem="Qnf-5y-woV" secondAttribute="top" constant="16" id="DPH-sk-3JL"/>
+                            <constraint firstItem="SZd-P0-CWK" firstAttribute="top" secondItem="eVl-4e-dBH" secondAttribute="bottom" constant="10" id="KK9-ji-Ce1"/>
+                            <constraint firstItem="7DU-kC-F5i" firstAttribute="centerY" secondItem="eVl-4e-dBH" secondAttribute="centerY" id="dbw-8q-ir8"/>
+                            <constraint firstAttribute="trailing" secondItem="7DU-kC-F5i" secondAttribute="trailing" constant="15" id="uvN-Qt-gvH"/>
+                            <constraint firstItem="eVl-4e-dBH" firstAttribute="leading" secondItem="Qnf-5y-woV" secondAttribute="leading" constant="15" id="vtu-Yg-Ptr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Qnf-5y-woV" secondAttribute="trailing" id="Sh3-ja-Gry"/>
+                    <constraint firstItem="Qnf-5y-woV" firstAttribute="top" secondItem="coY-X1-CqO" secondAttribute="top" id="WCL-x8-BHl"/>
+                    <constraint firstAttribute="bottom" secondItem="Qnf-5y-woV" secondAttribute="bottom" id="bPz-uI-4nI"/>
+                    <constraint firstItem="Qnf-5y-woV" firstAttribute="leading" secondItem="coY-X1-CqO" secondAttribute="leading" id="u1G-3V-XhE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="7DU-kC-F5i" id="JDN-Ow-WxB"/>
+                <outlet property="titleLabel1" destination="eVl-4e-dBH" id="aZb-GQ-rgh"/>
+                <outlet property="typeNamLabel" destination="SZd-P0-CWK" id="pFw-Bh-OS4"/>
+            </connections>
+            <point key="canvasLocation" x="57" y="-393"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LFInvoiceView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUe-Ne-xgm">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqG-kz-39w">
+                            <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Ezi-bO-DBB"/>
+                                <constraint firstAttribute="width" constant="40" id="YFx-q6-TaR"/>
+                            </constraints>
+                            <state key="normal" image="椭圆-4-拷贝"/>
+                            <state key="selected" image="选择-拷贝-3"/>
+                            <connections>
+                                <action selector="_selectedAll:" destination="iN0-l3-epB" eventType="touchUpInside" id="nIl-js-72V"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全选" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYf-iB-gPl">
+                            <rect key="frame" x="45" y="12.5" width="27" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="rm_font">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共￥0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEu-qU-Qnm">
+                            <rect key="frame" x="325" y="12.5" width="35" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.75294117647058822" green="0.050980392156862744" blue="0.13725490196078433" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="rm_font">
+                                    <real key="value" value="13"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-KV-9iq" customClass="SLDevider">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Mk5-tE-yMx"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="AYf-iB-gPl" firstAttribute="leading" secondItem="cqG-kz-39w" secondAttribute="trailing" id="2iv-ar-uCB"/>
+                        <constraint firstItem="cqG-kz-39w" firstAttribute="top" secondItem="oUe-Ne-xgm" secondAttribute="top" id="7rR-uX-Aqt"/>
+                        <constraint firstItem="UEu-qU-Qnm" firstAttribute="centerY" secondItem="oUe-Ne-xgm" secondAttribute="centerY" id="AdU-VJ-mGA"/>
+                        <constraint firstItem="cMS-KV-9iq" firstAttribute="top" secondItem="oUe-Ne-xgm" secondAttribute="top" id="D1z-Ma-ODX"/>
+                        <constraint firstItem="cMS-KV-9iq" firstAttribute="leading" secondItem="oUe-Ne-xgm" secondAttribute="leading" id="Eox-RK-AdM"/>
+                        <constraint firstAttribute="trailing" secondItem="cMS-KV-9iq" secondAttribute="trailing" id="aJe-Pa-EoI"/>
+                        <constraint firstAttribute="height" constant="40" id="e87-0u-Vok"/>
+                        <constraint firstItem="AYf-iB-gPl" firstAttribute="centerY" secondItem="cqG-kz-39w" secondAttribute="centerY" id="gRk-3F-qCy"/>
+                        <constraint firstItem="cqG-kz-39w" firstAttribute="leading" secondItem="oUe-Ne-xgm" secondAttribute="leading" constant="5" id="kTj-Nk-HNX"/>
+                        <constraint firstAttribute="trailing" secondItem="UEu-qU-Qnm" secondAttribute="trailing" constant="15" id="vaT-3o-J2F"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQB-cg-hHt">
+                    <rect key="frame" x="15" y="53" width="345" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="RDE-Jb-QbA"/>
+                    </constraints>
+                    <state key="normal" title="提交">
+                        <color key="titleColor" red="0.75294117650000003" green="0.050980392159999999" blue="0.13725490200000001" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.80000000000000004"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.75294117650000003" green="0.050980392159999999" blue="0.13725490200000001" alpha="1" colorSpace="deviceRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="_submit:" destination="iN0-l3-epB" eventType="touchUpInside" id="c5h-9E-VP5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oUe-Ne-xgm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6a4-E7-NnB"/>
+                <constraint firstAttribute="trailing" secondItem="oUe-Ne-xgm" secondAttribute="trailing" id="E9a-Oy-PaG"/>
+                <constraint firstItem="ZQB-cg-hHt" firstAttribute="top" secondItem="oUe-Ne-xgm" secondAttribute="bottom" constant="13" id="GWt-XR-HCf"/>
+                <constraint firstItem="ZQB-cg-hHt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="LqW-kK-sKM"/>
+                <constraint firstItem="ZQB-cg-hHt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Nbn-mE-NLM"/>
+                <constraint firstAttribute="trailing" secondItem="ZQB-cg-hHt" secondAttribute="trailing" constant="15" id="Oac-IL-GB6"/>
+                <constraint firstItem="oUe-Ne-xgm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T99-YF-XWx"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="_allBtn" destination="cqG-kz-39w" id="KWP-qd-foz"/>
+                <outlet property="totalLabel" destination="UEu-qU-Qnm" id="ffm-kT-v8d"/>
+            </connections>
+            <point key="canvasLocation" x="-97.5" y="-68.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="椭圆-4-拷贝" width="16" height="16"/>
+        <image name="选择-拷贝-3" width="16" height="16"/>
+    </resources>
+</document>

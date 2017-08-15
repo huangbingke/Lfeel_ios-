@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="187" id="aQU-cS-R5B" customClass="LFCollctCell">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aQU-cS-R5B" id="7gE-9H-J7B">
+                <rect key="frame" x="0.0" y="0.0" width="425" height="101"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-X2-NmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="425" height="101"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-1" translatesAutoresizingMaskIntoConstraints="NO" id="jZ1-6M-OIZ">
+                                <rect key="frame" x="15" y="7" width="86" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="Kve-Fz-jbc"/>
+                                    <constraint firstAttribute="height" constant="86" id="P9z-Pv-FFe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女士牛皮金扣手提包birkin30 9T" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkH-p1-1Ym">
+                                <rect key="frame" x="116" y="7" width="294" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jZ1-6M-OIZ" firstAttribute="centerY" secondItem="aJD-X2-NmQ" secondAttribute="centerY" id="0YB-js-QFS"/>
+                            <constraint firstItem="jZ1-6M-OIZ" firstAttribute="leading" secondItem="aJD-X2-NmQ" secondAttribute="leading" constant="15" id="bQx-mJ-tNa"/>
+                            <constraint firstItem="gkH-p1-1Ym" firstAttribute="leading" secondItem="jZ1-6M-OIZ" secondAttribute="trailing" constant="15" id="hiW-Nu-ehE"/>
+                            <constraint firstAttribute="trailing" secondItem="gkH-p1-1Ym" secondAttribute="trailing" constant="15" id="idZ-20-ZgE"/>
+                            <constraint firstItem="gkH-p1-1Ym" firstAttribute="top" secondItem="jZ1-6M-OIZ" secondAttribute="top" id="ncr-CE-ktt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="aJD-X2-NmQ" secondAttribute="trailing" id="H6z-95-JdD"/>
+                    <constraint firstItem="aJD-X2-NmQ" firstAttribute="top" secondItem="7gE-9H-J7B" secondAttribute="top" id="Ovl-q9-e0E"/>
+                    <constraint firstItem="aJD-X2-NmQ" firstAttribute="leading" secondItem="7gE-9H-J7B" secondAttribute="leading" id="V3Z-10-veM"/>
+                    <constraint firstAttribute="bottom" secondItem="aJD-X2-NmQ" secondAttribute="bottom" id="fix-tl-Lf7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="goodName" destination="gkH-p1-1Ym" id="YXU-Hu-PF2"/>
+                <outlet property="imdegeUrl" destination="jZ1-6M-OIZ" id="6CD-Uz-fGd"/>
+            </connections>
+            <point key="canvasLocation" x="-56.5" y="-53.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="图层-1" width="66" height="66"/>
+    </resources>
+</document>

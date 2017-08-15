@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LFBagHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpS-Wo-wGz">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper3" translatesAutoresizingMaskIntoConstraints="NO" id="NxN-Dr-uzZ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFZ-dU-B5G">
+                            <rect key="frame" x="0.0" y="43" width="375" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乐荟币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-cq-A4R">
+                            <rect key="frame" x="0.0" y="72.5" width="375" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="wFZ-dU-B5G" firstAttribute="top" secondItem="tpS-Wo-wGz" secondAttribute="top" constant="43" id="5DB-bC-FOb"/>
+                        <constraint firstItem="NxN-Dr-uzZ" firstAttribute="leading" secondItem="tpS-Wo-wGz" secondAttribute="leading" id="75M-Ja-wZN"/>
+                        <constraint firstItem="Fph-cq-A4R" firstAttribute="top" secondItem="wFZ-dU-B5G" secondAttribute="bottom" constant="10" id="BpO-rd-U5t"/>
+                        <constraint firstAttribute="bottom" secondItem="NxN-Dr-uzZ" secondAttribute="bottom" id="OWa-KV-IzN"/>
+                        <constraint firstItem="Fph-cq-A4R" firstAttribute="trailing" secondItem="wFZ-dU-B5G" secondAttribute="trailing" id="UUZ-jC-OrM"/>
+                        <constraint firstAttribute="trailing" secondItem="wFZ-dU-B5G" secondAttribute="trailing" id="V5J-vE-zn7"/>
+                        <constraint firstItem="Fph-cq-A4R" firstAttribute="leading" secondItem="wFZ-dU-B5G" secondAttribute="leading" id="bqu-3Y-ZGc"/>
+                        <constraint firstItem="NxN-Dr-uzZ" firstAttribute="top" secondItem="tpS-Wo-wGz" secondAttribute="top" id="dEQ-8b-9oE"/>
+                        <constraint firstAttribute="trailing" secondItem="NxN-Dr-uzZ" secondAttribute="trailing" id="gmS-1e-2CL"/>
+                        <constraint firstItem="wFZ-dU-B5G" firstAttribute="leading" secondItem="tpS-Wo-wGz" secondAttribute="leading" id="jTP-Mm-mph"/>
+                        <constraint firstItem="wFZ-dU-B5G" firstAttribute="centerX" secondItem="NxN-Dr-uzZ" secondAttribute="centerX" id="kNS-U0-if4"/>
+                        <constraint firstItem="Fph-cq-A4R" firstAttribute="centerX" secondItem="wFZ-dU-B5G" secondAttribute="centerX" id="yRL-Iu-dmn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tpS-Wo-wGz" secondAttribute="bottom" id="1FK-lf-uki"/>
+                <constraint firstItem="tpS-Wo-wGz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GeH-nC-Q2N"/>
+                <constraint firstItem="tpS-Wo-wGz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Lnx-2G-Omz"/>
+                <constraint firstAttribute="trailing" secondItem="tpS-Wo-wGz" secondAttribute="trailing" id="lHo-2C-eyd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="tpS-Wo-wGz" id="h27-a0-yiq"/>
+                <outlet property="intrerGralLabel" destination="wFZ-dU-B5G" id="e4i-EL-zFS"/>
+            </connections>
+            <point key="canvasLocation" x="23.5" y="-134.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wallpaper3" width="375" height="121"/>
+    </resources>
+</document>

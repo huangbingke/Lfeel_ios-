@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="173"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="172.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhN-lC-4jJ">
+                        <rect key="frame" x="0.0" y="74" width="375" height="67"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="67" id="sa4-a1-diY"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户AAAAA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-q2-wht">
+                        <rect key="frame" x="59" y="19" width="65" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="我的-我的收藏" translatesAutoresizingMaskIntoConstraints="NO" id="Ba7-ih-iC8">
+                        <rect key="frame" x="23" y="16" width="21" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="21" id="YIY-Jx-j2d"/>
+                            <constraint firstAttribute="height" constant="21" id="bXn-5S-aWB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这个酒吧非常棒，气氛很好！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXs-4q-IeV">
+                        <rect key="frame" x="59" y="42" width="159.5" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="t02-Oh-J30"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HXs-4q-IeV" firstAttribute="top" secondItem="Fhi-q2-wht" secondAttribute="bottom" constant="8" id="3NF-gA-nuW"/>
+                    <constraint firstItem="DhN-lC-4jJ" firstAttribute="top" secondItem="HXs-4q-IeV" secondAttribute="bottom" constant="16" id="4b8-Kg-B2b"/>
+                    <constraint firstItem="Fhi-q2-wht" firstAttribute="leading" secondItem="Ba7-ih-iC8" secondAttribute="trailing" constant="15" id="Gzs-oD-8Na"/>
+                    <constraint firstItem="Ba7-ih-iC8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Wau-GU-hln"/>
+                    <constraint firstItem="Fhi-q2-wht" firstAttribute="centerY" secondItem="Ba7-ih-iC8" secondAttribute="centerY" id="aI1-eR-i4G"/>
+                    <constraint firstAttribute="trailing" secondItem="DhN-lC-4jJ" secondAttribute="trailing" id="dtO-gA-avX"/>
+                    <constraint firstItem="HXs-4q-IeV" firstAttribute="leading" secondItem="Fhi-q2-wht" secondAttribute="leading" id="jFY-e5-6qQ"/>
+                    <constraint firstItem="DhN-lC-4jJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nUz-la-MxY"/>
+                    <constraint firstItem="Ba7-ih-iC8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="pvy-HV-5DU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ImageViewConstrint" destination="4b8-Kg-B2b" id="527-sn-dXQ"/>
+                <outlet property="barImageView" destination="DhN-lC-4jJ" id="PSo-2G-kg0"/>
+                <outlet property="contentsLabel" destination="HXs-4q-IeV" id="OC0-pz-HAB"/>
+                <outlet property="userIcon" destination="Ba7-ih-iC8" id="j7I-W7-nwe"/>
+                <outlet property="userName" destination="Fhi-q2-wht" id="do1-c9-S6r"/>
+            </connections>
+            <point key="canvasLocation" x="121.5" y="63.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="我的-我的收藏" width="23" height="23"/>
+    </resources>
+</document>

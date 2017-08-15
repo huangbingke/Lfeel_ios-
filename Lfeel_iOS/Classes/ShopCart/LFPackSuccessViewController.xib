@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LFPackSuccessViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="打包成功" translatesAutoresizingMaskIntoConstraints="NO" id="StW-yi-UDc">
+                    <rect key="frame" x="142.5" y="200" width="90" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="StW-yi-UDc" secondAttribute="height" id="9Xw-kB-c4i"/>
+                        <constraint firstAttribute="width" constant="90" id="dRP-om-Ech"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统已收到您的申请!我们将在第一时间安排发货!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUK-vU-ajO">
+                    <rect key="frame" x="10" y="315" width="355" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="myh-Pb-aun"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJE-Nx-mya">
+                    <rect key="frame" x="50" y="547" width="275" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="uL0-Tz-HCf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="继续逛逛">
+                        <color key="titleColor" red="1" green="0.16852444359999999" blue="0.2711180212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="1" green="0.16852444359999999" blue="0.2711180212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="continue:" destination="-1" eventType="touchUpInside" id="rAR-LL-fA3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiR-rO-Wlb">
+                    <rect key="frame" x="15" y="40" width="30" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="ML7-JZ-qHi"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="返回-黑"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="StW-yi-UDc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="2rC-HQ-jGv"/>
+                <constraint firstAttribute="bottom" secondItem="mJE-Nx-mya" secondAttribute="bottom" constant="80" id="4T9-4V-T6J"/>
+                <constraint firstItem="JUK-vU-ajO" firstAttribute="top" secondItem="StW-yi-UDc" secondAttribute="bottom" constant="25" id="IH8-Vp-9yh"/>
+                <constraint firstItem="JUK-vU-ajO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="JD9-nq-cyb"/>
+                <constraint firstAttribute="trailing" secondItem="JUK-vU-ajO" secondAttribute="trailing" constant="10" id="LbD-31-FsX"/>
+                <constraint firstAttribute="trailing" secondItem="mJE-Nx-mya" secondAttribute="trailing" constant="50" id="WLB-IC-ANn"/>
+                <constraint firstItem="mJE-Nx-mya" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ZBB-VW-GNH"/>
+                <constraint firstItem="TiR-rO-Wlb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="ov3-rQ-0Je"/>
+                <constraint firstItem="TiR-rO-Wlb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="qnO-UV-tZT"/>
+                <constraint firstItem="StW-yi-UDc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uFl-8e-9v3"/>
+            </constraints>
+            <point key="canvasLocation" x="80.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="打包成功" width="34" height="34"/>
+        <image name="返回-黑" width="16" height="16"/>
+    </resources>
+</document>
