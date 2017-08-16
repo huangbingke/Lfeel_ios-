@@ -285,7 +285,7 @@
 #pragma mark - Getter\Setter
 - (HJScrollImage *)bannar {
     if (!_bannar) {
-        HJScrollImage * bannar = [[HJScrollImage alloc] initWithFrame:Rect(0, 0, kScreenWidth, kScreenWidth*0.6)];
+        HJScrollImage * bannar = [[HJScrollImage alloc] initWithFrame:Rect(0, 0, kScreenWidth, kScreenWidth*0.5)];
         self.bannar = bannar;
         bannar.pageControl.currentPageIndicatorTintColor = HexColorInt32_t(333333);
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(TapBannerGestureRecognizer:)];

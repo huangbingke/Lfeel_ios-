@@ -77,8 +77,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 
-    NSArray * titles = @[@"新手指导", @"清洗报告", @"会员特权", @"租用流程"];
-    NSArray * sels = @[@"setUIWithNewHands", @"setUIWithClean", @"setUIWithNewHandsUnderstand", @"setUIWithRentStep"];
+    NSArray * titles = @[@"新手指南", @"清洗报告", @"会员特权"];
+    NSArray * sels = @[@"setUIWithNewHands", @"setUIWithClean", @"setUIWithNewHandsUnderstand"];
     @weakify(self);
     NSString * title = titles[_index];
     self.ts_navgationBar = [TSNavigationBar navWithTitle:title backAction:^{
@@ -96,19 +96,20 @@
 
 //新手指导
 - (void)setUIWithNewHands {
-    LHScrollView *scrollView = [[LHScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight- 64) imageArray:@[@"NewHands_01", @"NewHands_02", @"NewHands_03", @"NewHands_04", @"NewHands_05"]];
-    [self.view addSubview:scrollView];
-    
-    UIButton *addVipBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
-    [addVipBtn setTitle:@"加入乐荟会员" forState:(UIControlStateNormal)];
-    [addVipBtn setTitleColor:kColor(255, 49, 64) forState:(UIControlStateNormal)];
-    addVipBtn.layer.borderColor = kColor(255, 49, 64).CGColor;
-    addVipBtn.layer.borderWidth = 1;
-    [addVipBtn addTarget:self action:@selector(addVipBtnAction) forControlEvents:(UIControlEventTouchUpInside)];
-    addVipBtn.frame = CGRectMake((kScreenWidth-150)/2, kScreenHeight-40*kRatio-40-64, 150, 40*kRatio);
-    scrollView.subviews.lastObject.userInteractionEnabled = YES;
-    [scrollView.subviews.lastObject addSubview:addVipBtn];
-    
+//    LHScrollView *scrollView = [[LHScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight- 64) imageArray:@[@"NewHands_01", @"NewHands_02", @"NewHands_03", @"NewHands_04", @"NewHands_05"]];
+//    [self.view addSubview:scrollView];
+//    
+//    UIButton *addVipBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
+//    [addVipBtn setTitle:@"加入乐荟会员" forState:(UIControlStateNormal)];
+//    [addVipBtn setTitleColor:kColor(255, 49, 64) forState:(UIControlStateNormal)];
+//    addVipBtn.layer.borderColor = kColor(255, 49, 64).CGColor;
+//    addVipBtn.layer.borderWidth = 1;
+//    [addVipBtn addTarget:self action:@selector(addVipBtnAction) forControlEvents:(UIControlEventTouchUpInside)];
+//    addVipBtn.frame = CGRectMake((kScreenWidth-150)/2, kScreenHeight-40*kRatio-40-64, 150, 40*kRatio);
+//    scrollView.subviews.lastObject.userInteractionEnabled = YES;
+//    [scrollView.subviews.lastObject addSubview:addVipBtn];
+        LHScrollView *scrollView = [[LHScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight- 64) imageRadio:6.8 imageName:@"NewHands_01"];
+        [self.view addSubview:scrollView];
 }
 
 - (void)addVipBtnAction {
@@ -119,16 +120,12 @@
 
 //清理
 - (void)setUIWithClean {
-    LHScrollView *scrollView = [[LHScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) imageArray:@[@"HomeClean_01", @"HomeClean_02", @"HomeClean_03", @"HomeClean_04"]];
+    LHScrollView *scrollView = [[LHScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) imageArray:@[@"HomeClean_01", @"HomeClean_02", @"HomeClean_03"]];
     [self.view addSubview:scrollView];
 }
 
 
-//租用流程
-- (void)setUIWithRentStep {
-    LHScrollView *scrollView = [[LHScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) imageArray:@[@"RentStep_01", @"RentStep_02"]];
-    [self.view addSubview:scrollView];
-}
+
 
 
 
