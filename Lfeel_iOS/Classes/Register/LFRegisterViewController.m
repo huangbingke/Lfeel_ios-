@@ -193,7 +193,7 @@
     params.mobilePhone = self.iphoneText.text;
         [TSNetworking POSTWithURL:url paramsModel:params completeBlock:^(NSDictionary *request) {
 //        SLLog2(@"~验证码发送成功~~~~~~~~~~~~~~~~~~~~~~~~`request :%@",request);
-            [sender countDownWithTime:60 title:@"重新获取" countDownTitle:@"s重新获取" backgroundColor:[UIColor whiteColor] disabledColor:HexColorInt32_t(C20D20)];
+            [sender countDownWithTime:60 title:@"重新获取" countDownTitle:@"重新获取" backgroundColor:[UIColor whiteColor] disabledColor:HexColorInt32_t(C20D20)];
 
     } failBlock:^(NSError *error) {
         SLShowNetworkFail;
