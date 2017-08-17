@@ -39,7 +39,11 @@
         UIImageView * imageView = [UIImageView imageViewWithImage:[UIImage imageNamed:name] frame:Rect(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
         [scrollView addSubview:imageView];
         if (i == count -1) {
-            UIButton * btn = [UIButton buttonWithTitle:nil titleColor:nil backgroundColor:[UIColor clearColor] font:0 image:nil frame:Rect(0, kScreenHeight - 104 * (kScreenHeight / 2208) - Fit1242(100), Fit1242(300), Fit1242(100))];
+            imageView.userInteractionEnabled = YES;
+//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+//            [imageView addGestureRecognizer:tap];
+//            UIButton * btn = [UIButton buttonWithTitle:nil titleColor:nil backgroundColor:[UIColor clearColor] font:0 image:nil frame:Rect(0, kScreenHeight - 104 * (kScreenHeight / 2208) - Fit1242(100), Fit1242(300), Fit1242(100))];
+            UIButton * btn = [UIButton buttonWithTitle:nil titleColor:nil backgroundColor:[UIColor clearColor] font:0 image:nil frame:Rect(0, 0, kScreenWidth, kScreenHeight)];
             btn.centerX = kHalfScreenWidth;
             [imageView addSubview:btn];
             imageView.userInteractionEnabled = YES;
