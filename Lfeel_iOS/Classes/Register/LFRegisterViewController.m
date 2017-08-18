@@ -226,7 +226,14 @@
         if ([request[@"result"]integerValue] == 200 ) {
             SVShowSuccess(@"注册成功");
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.navigationController popViewControllerAnimated:YES];
+                if (self.FriendCode.text) {
+                    [self showAlertViewWithTitle:@"登录有惊喜,前往我的卡包,已为您放入一张优惠券" yesHandler:^(UIAlertAction *action) {
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                    } noHandler:^(UIAlertAction * _Nullable action) {
+                        
+                    }];
+                }
             });
         }else{
             SVShowError(request[@"msg"]);

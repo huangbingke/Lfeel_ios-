@@ -167,6 +167,7 @@
     LFParameter *paeme = [LFParameter new];
     paeme.id = self.ID;
     paeme.startPage = stringWithInt(starpage) ;
+    [self.dataSources removeAllObjects];
     [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         SLLog(request);
         
@@ -341,6 +342,7 @@
             
             if ([self.type isEqualToString:@"1"]) {
                 //租凭
+//                startPage++;
                 [self loadData:startPage];
             }else{
                 /// 购买

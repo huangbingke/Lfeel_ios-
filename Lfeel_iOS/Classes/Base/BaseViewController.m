@@ -156,6 +156,13 @@
     
 }
 
-
+- (void)showAlertViewWithTitle:(NSString *)title yesHandler:(void (^ __nullable)(UIAlertAction *action))yesHandler noHandler:(void (^ __nullable)(UIAlertAction *action))noHandler {
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:title preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:yesHandler];
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:noHandler];
+    [alertC addAction:sureAction];
+    [alertC addAction:noAction];
+    [self presentViewController:alertC animated:YES completion:nil];
+}
 
 @end

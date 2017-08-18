@@ -31,6 +31,6 @@
 - (void)showAlertViewWithTitle:(NSString *)title;
 
 
-
+- (void)showAlertViewWithTitle:(NSString *)title yesHandler:(void (^ __nullable)(UIAlertAction *action))yesHandler noHandler:(void (^ __nullable)(UIAlertAction * _Nullable action))noHandler;
 
 @end
