@@ -124,10 +124,11 @@ static TSHTTPSessionManager *_manager = nil;
 + (void)POSTWithURL:(NSString *)urlString paramsModel:(id)params needProgressHUD:(BOOL)isNeed completeBlock:(void (^)(NSDictionary *))success failBlock:(void (^)(NSError *))failure {
     TSHTTPSessionManager * manager = [TSHTTPSessionManager sharedManager];
     manager.responseSerializer.acceptableContentTypes =[NSSet setWithObjects:@"text/html",@"application/json", @"text/json", nil];
-    MBProgressHUD * hud = nil;
-    if (isNeed) {
-        hud = [MBProgressHUD showMessage:nil];
-    }
+        MBProgressHUD * hud = nil;
+        if (isNeed) {
+            hud = [MBProgressHUD showMessage:nil];
+        }
+
     
     NSDictionary * p = nil;
     if ([params isKindOfClass:[NSDictionary class]]) {

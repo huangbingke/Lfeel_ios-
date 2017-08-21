@@ -30,9 +30,9 @@
     
     [self setupNavigationBar];
     
-    MainViewController * main = (MainViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    BaseNavigationController * base = (BaseNavigationController *)main.selectedViewController;
-    base.gestureRecognizerEnabled = NO;
+//    MainViewController * main = (MainViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    BaseNavigationController * base = (BaseNavigationController *)main.selectedViewController;
+//    base.gestureRecognizerEnabled = NO;
     
     
 
@@ -108,7 +108,7 @@
             [User saveUseDefaultsOjbect:request[@"isVip"] forKey:kVipStatus];
             
         } else {
-            SVShowError(request[@"msg"]);
+//            SVShowError(request[@"msg"]);
         }
     } failBlock:^(NSError *error) {
         SLLog(error);
