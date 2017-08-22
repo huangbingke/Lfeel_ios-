@@ -374,7 +374,7 @@
     paeme.user_id = dic[@"user_id"];
     NSString *url = @"order/check.htm?";
     paeme.user_id = dic[@"user_id"];
-    paeme.type = @"2";
+    paeme.type = @"2";//0普通订单 1提现申请 2租赁订单，3月结收益转余额
     [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         SLLog(request);
 //        self.boxStatus = [request[@"result"] integerValue];

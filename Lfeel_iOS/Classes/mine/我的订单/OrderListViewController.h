@@ -16,7 +16,7 @@
 
 @property (nonatomic,   copy) VoidBlcok vblock;
 
-@property (nonatomic, copy)NSString * type;
+@property (nonatomic, copy) NSString * type;
 
 
 

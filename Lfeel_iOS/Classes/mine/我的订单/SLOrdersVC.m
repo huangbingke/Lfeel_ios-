@@ -131,18 +131,17 @@
     btn.selected = YES;
     self.selectedBtn = btn;
     self.ts_navgationBar.titleLabel.text = self.titles[self.selectedBtn.tag];
-    [UIView animateWithDuration:0.25
-                     animations:^{
-                         self.line.centerX = self.selectedBtn.centerX;
-                         [self.scrollView setContentOffset:CGPointMake(kScreenWidth * self.selectedBtn.tag, 0)];
-                     }];
+    [UIView animateWithDuration:0.25 animations:^{
+//            self.line.centerX = self.selectedBtn.centerX;
+            [self.scrollView setContentOffset:CGPointMake(kScreenWidth * self.selectedBtn.tag, 0)];
+    }];
     
     OrderListViewController * orderView = self.childViewControllers[self.selectedBtn.tag];
     if (!orderView.isViewLoaded) {
         orderView.view.frame = Rect(self.selectedBtn.tag * kScreenWidth, 0, kScreenWidth, self.scrollView.height);
         [self.scrollView addSubview:orderView.view];
     } else {
-        if ( orderView.isNeedRefresh) {
+        if (orderView.isNeedRefresh) {
             [orderView reloadData];
         }
     }
@@ -152,7 +151,6 @@
 ///刷新子控制器
 /// needRefresh 是否需要刷新
 - (void)makeAllControllerNeedRefreshNeedImmediately:(BOOL)immediately {
-
     for (OrderListViewController* vc in self.childViewControllers) {
         vc.needRefresh = YES;
     }
@@ -173,15 +171,13 @@
     btn.selected = YES;
     self.selectedBtn = btn;
     self.ts_navgationBar.titleLabel.text = self.titles[index];
-    [UIView animateWithDuration:0.25
-                     animations:^{
-                         self.line.centerX = self.selectedBtn.centerX;
-                     }];
+    [UIView animateWithDuration:0.25 animations:^{
+//        self.line.centerX = self.selectedBtn.centerX;
+    }];
     
     OrderListViewController* vc = self.childViewControllers[self.selectedBtn.tag];
     if (!vc.isViewLoaded) {
-        vc.view.frame = Rect(self.selectedBtn.tag * kScreenWidth, 0, kScreenWidth,
-                             self.scrollView.height);
+        vc.view.frame = Rect(self.selectedBtn.tag * kScreenWidth, 0, kScreenWidth, self.scrollView.height);
         [self.scrollView addSubview:vc.view];
     } else {
         if (vc.isNeedRefresh) {
@@ -197,7 +193,7 @@
     if (x <= 0 || x >= kScreenWidth * _titles.count) {
         return;
     }
-    self.line.centerX = x / _titles.count + kScreenWidth / (_titles.count * 2);
+//    self.line.centerX = x / _titles.count + kScreenWidth / (_titles.count * 2);
 }
 
 - (NSArray<UIButton*>*)buttons {

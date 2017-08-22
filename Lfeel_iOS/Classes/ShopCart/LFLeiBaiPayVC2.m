@@ -71,8 +71,7 @@
     
     NSString * url = @"login/gainCode.htm?";
     LFParameter * parameter = [LFParameter new];
-//    parameter.mobilePhone = self.payView.phone.text;
-    parameter.mobilePhone = @"13298368875";
+    parameter.mobilePhone = self.payView.phone.text;
     [parameter appendBaseParam];
     
     [TSNetworking POSTWithURL:url paramsModel:parameter needProgressHUD:YES completeBlock:^(NSDictionary *request) {
@@ -135,12 +134,12 @@
             SVShowError(request[@"msg"]);
             return ;
         }
-       NSString *dateStr = [self timeWithTimeIntervalString:[NSString stringWithFormat:@"%@", request[@"finishTime"]]];
+       NSString *dateStr = [self timeWithTimeIntervalString:[NSString stringWithFormat:@"%@", request[@"orderTime"]]];
         LFPayResultVC * controller = [[LFPayResultVC alloc] init];
         controller.orderInfo = @{
                                  @"totalPrice" : stringWithDouble(self.payModel.price.doubleValue / 100),
                                  @"orderCode"  : self.payModel.order_sn,
-                                 @"finishTime" : dateStr
+                                 @"orderTime" : dateStr
                                  };
         controller.success = YES;
         [self.navigationController pushViewController:controller animated:YES];

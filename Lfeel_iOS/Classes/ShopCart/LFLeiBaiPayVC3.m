@@ -131,10 +131,13 @@
             SVShowError(request[@"msg"]);
             return ;
         }
+        NSString *dateStr = [self timeWithTimeIntervalString:[NSString stringWithFormat:@"%@", request[@"orderTime"]]];
+
         LFPayResultVC * controller = [[LFPayResultVC alloc] init];
         controller.orderInfo = @{
                                  @"totalPrice" : stringWithDouble(self.payModel.price.doubleValue / 100),
-                                 @"orderCode"  : self.payModel.order_sn
+                                 @"orderCode"  : self.payModel.order_sn,
+                                 @"orderTime" : dateStr
                                  };
         controller.success = YES;
         [self.navigationController pushViewController:controller animated:YES];
