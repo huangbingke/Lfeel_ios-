@@ -89,7 +89,7 @@
     
     UIView * BottomView  = [[UIView alloc]init];
     BottomView.backgroundColor = HexColorInt32_t(f1f1f1);
-    BottomView.frame = Rect(0, kScreenHeight-Fit375(30)-64, kScreenWidth, Fit375(60));
+    BottomView.frame = Rect(0, kScreenHeight-Fit375(10)-64, kScreenWidth, Fit375(60));
     [self.view addSubview:BottomView];
     
     LFHotBottomView *bottom = [LFHotBottomView creatViewFromNib];
@@ -128,9 +128,9 @@
         [self.addVip addTarget:self action:@selector(TapAddVipBtn)];
         [self.view addSubview:self.addVip];
         [self.addVip mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(BottomView.mas_top).offset(10);
+            make.bottom.equalTo(BottomView.mas_top).offset(0);
             make.width.mas_equalTo(100);
-            make.height.mas_equalTo(35);
+            make.height.mas_equalTo(30);
             make.centerX.mas_equalTo(self.view.mas_centerX);
         }];
     }
@@ -150,7 +150,7 @@
 
 - (void)loadUI {
     _container = [[YSLDraggableCardContainer alloc] init];
-    _container.frame = CGRectMake(30, 94, kScreenWidth -60, (kScreenWidth -60)*1.3);
+    _container.frame = CGRectMake(40, 74, kScreenWidth - 80, (kScreenWidth -80)*1.6);
     _container.backgroundColor = [UIColor clearColor];
     _container.dataSource = self;
     _container.delegate = self;
@@ -257,7 +257,7 @@
     
     model = _dataSources[index];
    
-    CardView *view = [[CardView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 60, self.view.frame.size.height - Fit375(250) )];
+    CardView *view = [[CardView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth - 80, (kScreenWidth - 80)*1.6 )];
 //    @weakify(self);
     view.backgroundColor = [UIColor whiteColor];
 

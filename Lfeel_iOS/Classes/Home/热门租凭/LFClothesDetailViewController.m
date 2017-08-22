@@ -74,9 +74,11 @@
     
     SLLog2(@"33333");
     if(headerView!= nil)return headerView;
-    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(709))];
-    
-    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(414))];
+//    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(709))];
+    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.6)];
+
+//    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(414))];
+    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.5)];
     banner.backgroundColor = HexColorInt32_t(111111);
     [headerView addSubview:banner];
     self.goodBanner  = [[GoodSBannarView alloc]initWithFrame:banner.frame];
@@ -290,7 +292,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return  Fit375(560);
+//    return  Fit375(560);
+    return kScreenWidth*1.8;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return [self CreateGoodsHeaderView];

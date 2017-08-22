@@ -41,7 +41,10 @@
 - (void)setup
 {
     _imageView = [[UIImageView alloc]init];
-    _imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 30);
+//    _imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 30);
+    
+        _imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.width*1.5);
+
     [self addSubview:_imageView];
     
     UIBezierPath *maskPath;
@@ -62,7 +65,7 @@
     
     _label = [[UILabel alloc]init];
     _label.backgroundColor = [UIColor clearColor];
-    _label.frame = CGRectMake(10, self.frame.size.height-35, self.frame.size.width - 20, 20);
+    _label.frame = CGRectMake(10, self.frame.size.height-25, self.frame.size.width - 20, 20);
     _label.font = [UIFont fontWithName:@"Futura-Medium" size:14];
     _label.textAlignment = NSTextAlignmentCenter;
     

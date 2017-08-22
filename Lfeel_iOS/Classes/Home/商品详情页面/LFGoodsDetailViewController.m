@@ -149,7 +149,9 @@
     if(headerView!= nil)return headerView;
     headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(709))];
     
-    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(414))];
+//    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(414))];
+    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.3)];
+
     banner.backgroundColor = HexColorInt32_t(111111);
     [headerView addSubview:banner];
    self.goodBanner  = [[GoodSBannarView alloc]initWithFrame:banner.frame];

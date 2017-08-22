@@ -25,6 +25,8 @@
         
         self.scrollBanner.pageControl.currentPageIndicatorTintColor = HexColorInt32_t(FFD96C);
         self.scrollBanner.pageControl.pageIndicatorTintColor = HexColorInt32_t(d4d4d4);
+        self.scrollBanner.imageContentMode = UIViewContentModeScaleAspectFit;
+//        self.imageView.contentMode = UIViewContentModeScaleAspectFit
         self.scrollBanner.placeholderImage = SLPlaceHolder;
         [self addSubview:scrollBanner];
 //        self.scrollBanner.isGoodsFrame = YES;
