@@ -8,10 +8,14 @@
 
 #import "LFPackViewController.h"
 #import "LFPackCell.h"
+#import "LHScanViewController.h"
+
+
 @interface LFPackViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *expressTF;
-@property (weak, nonatomic) IBOutlet UITextField *goodsNumTF;
 @property (weak, nonatomic) IBOutlet UITextField *remarkTF;
+
+@property (nonatomic, copy) NSString *number;
 
 @end
 
@@ -20,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.number = nil;
 
 }
 - (void)requestSubmitData {
@@ -30,7 +36,7 @@
     paeme.type = @"2";
     paeme.express_no = self.expressTF.text;
     paeme.application_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"application_id"];
-    paeme.remark = [NSString stringWithFormat:@"打包了%@件,备注:%@", self.goodsNumTF.text, self.remarkTF.text];
+    paeme.remark = [NSString stringWithFormat:@"寄回了%@件,备注:%@", self.number, self.remarkTF.text];
     [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         SLLog(request);
         if ([request[@"result"] integerValue] == 200) {
@@ -44,20 +50,37 @@
     } failBlock:^(NSError *error) {
         SLLog(error);
     }];
-    
-    
-    
 }
 
-- (IBAction)backAction:(UIBarButtonItem *)sender {
+- (IBAction)backAction:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)selectBtn:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+    [alert addAction:[UIAlertAction actionWithTitle:@"寄回 1 件" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        self.number = @"1";
+        [sender setTitle:@"寄回 1 件" forState:(UIControlStateNormal)];
+        sender.titleColor = [UIColor blackColor];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"寄回 2 件" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        self.number = @"2";
+        [sender setTitle:@"寄回 2 件" forState:(UIControlStateNormal)];
+        sender.titleColor = [UIColor blackColor];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"寄回 3 件" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        self.number = @"3";
+        [sender setTitle:@"寄回 3 件" forState:(UIControlStateNormal)];
+        sender.titleColor = [UIColor blackColor];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 
 //提交
 - (IBAction)submitAction:(UIButton *)sender {
     NSLog(@"提交");
-    if (self.goodsNumTF.text.length == 0 && self.expressTF.text.length == 0) {
+    if (self.number.length == 0 && self.expressTF.text.length == 0) {
         SVShowError(@"请填写正确信息");
     } else {
         [self requestSubmitData];
@@ -65,6 +88,14 @@
 }
 
 
+- (IBAction)Scan:(UIButton *)sender {
+    LHScanViewController *scanVC = [[LHScanViewController alloc] init];
+    scanVC.idString = @"LFPackViewController";
+    scanVC.codeBlock = ^(NSString *invoteCode) {
+        self.expressTF.text = invoteCode;
+    };
+    [self.navigationController pushViewController:scanVC animated:YES];
+}
 
 
 

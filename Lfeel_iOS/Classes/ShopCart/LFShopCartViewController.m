@@ -416,6 +416,7 @@
     paeme.user_id = dic[@"user_id"];
     paeme.type = @"2";
     paeme.price = @"";
+    paeme.remark = @"打包";
     [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         SLLog(request);
         if ([request[@"result"] integerValue] == 200) {

@@ -167,7 +167,6 @@
     LFParameter *paeme = [LFParameter new];
     paeme.id = self.ID;
     paeme.startPage = stringWithInt(starpage) ;
-    [self.dataSources removeAllObjects];
     [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         SLLog(request);
         
@@ -177,9 +176,12 @@
         }
         startPage = [request[@"startPage"] integerValue];
         totalPage = [request[@"totalPage"] integerValue];
+        [self.dataSources removeAllObjects];
         for (NSDictionary *dic in request[@"goodsList"]) {
             [self setImageModel:dic];
         }
+//        NSLog(@"=========================>>>>>> %ld", self.dataSources.count);
+
     } failBlock:^(NSError *error) {
         
     }];
@@ -204,7 +206,7 @@
         for (NSDictionary *dic in request[@"goodsList"]) {
             [self setImageModel:dic];
         }
-        
+//        NSLog(@"=========================>>>>>> %ld", self.dataSources.count);
         
     } failBlock:^(NSError *error) {
         
@@ -268,8 +270,7 @@
     return view;
 }
 
-- (NSInteger)cardContainerViewNumberOfViewInIndex:(NSInteger)index
-{
+- (NSInteger)cardContainerViewNumberOfViewInIndex:(NSInteger)index {
     return _dataSources.count;
   
 }
@@ -363,6 +364,7 @@
             LFHothirevModel * model = self.dataSources[self->indexPage];
             [self HTTPRequestAddpersonal:model.goodsId];
         }else{
+            NSLog(@"%ld ---------------> %ld", index, self.dataSources.count);
             LFHothirevModel * model = self.dataSources[index-1];
             [self HTTPRequestAddpersonal:model.goodsId];
         }

@@ -100,6 +100,7 @@
         @strongify(self)
         IfUserIsNotLogin;
         LHScanViewController *scanVC = [[LHScanViewController alloc] init];
+        scanVC.idString = @"LFHomeViewController";
         [self.navigationController pushViewController:scanVC animated:YES];
         
     }];

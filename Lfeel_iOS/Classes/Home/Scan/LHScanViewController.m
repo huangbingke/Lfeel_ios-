@@ -104,6 +104,14 @@
     // 3. 设置界面显示扫描结果
     if (metadataObjects.count > 0) {
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
+        if ([_idString isEqualToString:@"LFPackViewController"]) {
+            if (self.codeBlock) {
+                self.codeBlock(obj.stringValue);
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+        }
+        
         //        NSLog(@"metadataObjects = %@", metadataObjects);
         if ([obj.stringValue hasPrefix:@"inviteCode"]) {
             NSLog(@"***************%@", obj.stringValue);

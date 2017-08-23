@@ -355,14 +355,27 @@
     paeme.start = 0;
     paeme.end = 20;
     [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:NO completeBlock:^(NSDictionary *request) {
-//        SLLog(request);
+        SLLog(request);
         if (!([request[@"result"] integerValue] == 200)) {
             SVShowError(request[@"msg"]);
             return ;
         } else {
-            self.headerView.allGetLabel.text = [NSString stringWithFormat:@"%@", request[@"Accumulated_earnings"]];
-            self.headerView.allRestLabel.text = [NSString stringWithFormat:@"%@", request[@"blance"]];
-            self.headerView.mouthGetLabel.text = [NSString stringWithFormat:@"%@", request[@"thisMoneh_earnings"]];
+            if (request[@"Accumulated_earnings"]) {
+                self.headerView.allGetLabel.text = [NSString stringWithFormat:@"%.2f", [request[@"Accumulated_earnings"] floatValue]];
+            } else {
+                self.headerView.allGetLabel.text = @"0.00";
+            }
+            if (request[@"balance"]) {
+                self.headerView.allRestLabel.text = [NSString stringWithFormat:@"%.2f", [request[@"balance"] floatValue]];
+            } else {
+                self.headerView.mouthGetLabel.text = @"0.00";
+            }
+            if (request[@"thisMoneh_earnings"]) {
+                self.headerView.mouthGetLabel.text = [NSString stringWithFormat:@"%.2f", [request[@"thisMoneh_earnings"] floatValue]];
+            } else {
+                self.headerView.mouthGetLabel.text = @"0.00";
+            }
+            
             for (NSDictionary *dic in request[@"agents"]) {
                 LFAgentGetRmbModel *model = [[LFAgentGetRmbModel alloc] init];
                 [model setValuesForKeysWithDictionary:dic];
