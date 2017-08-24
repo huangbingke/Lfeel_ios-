@@ -4097,7 +4097,7 @@
 					189A2BBC1E5D30BB0030ABD7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = Q7FLGD52CU;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -4841,7 +4841,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Lfeel_iOS/Lfeel_iOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = Q7FLGD52CU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4876,8 +4876,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lfeel.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d72a3182-23b2-4a32-8fed-d183598e883c";
+				PROVISIONING_PROFILE_SPECIFIER = LFEELPodfile;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Lfeel_iOS/Classes/Library/工具/PayTool/支付宝";
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",
@@ -4894,7 +4894,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Lfeel_iOS/Lfeel_iOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = Q7FLGD52CU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4929,8 +4929,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lfeel.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d72a3182-23b2-4a32-8fed-d183598e883c";
+				PROVISIONING_PROFILE_SPECIFIER = LFEELPodfile;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Lfeel_iOS/Classes/Library/工具/PayTool/支付宝";
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",

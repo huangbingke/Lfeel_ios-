@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -72,7 +73,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w4x-J3-Sdm" id="ULx-IE-oVu">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixP-Ke-lKR">
@@ -238,11 +239,9 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iic-85-0xt">
-                    <rect key="frame" x="225" y="0.0" width="150" height="55"/>
+                    <rect key="frame" x="250" y="0.0" width="125" height="55"/>
                     <color key="backgroundColor" red="1" green="0.1281391285" blue="0.14585888759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="150" id="Fvy-KO-3Fz"/>
-                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="去结算">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -267,6 +266,7 @@
                 <constraint firstItem="2LH-I5-qVP" firstAttribute="leading" secondItem="TrQ-d1-wm4" secondAttribute="leading" constant="18" id="6B9-Wd-3Dg"/>
                 <constraint firstItem="D2x-H6-Lwu" firstAttribute="top" secondItem="2LH-I5-qVP" secondAttribute="bottom" id="CZS-uF-xY2"/>
                 <constraint firstAttribute="bottom" secondItem="F2l-YO-IUm" secondAttribute="bottom" id="HM9-16-OL0"/>
+                <constraint firstItem="iic-85-0xt" firstAttribute="width" secondItem="TrQ-d1-wm4" secondAttribute="width" multiplier="1/3" id="IcX-eA-HWh"/>
                 <constraint firstItem="yAY-Ti-MrH" firstAttribute="centerY" secondItem="TrQ-d1-wm4" secondAttribute="centerY" id="Tka-d9-DBi"/>
                 <constraint firstItem="yAY-Ti-MrH" firstAttribute="leading" secondItem="2LH-I5-qVP" secondAttribute="trailing" constant="20" id="gTI-AF-a8m"/>
                 <constraint firstItem="F2l-YO-IUm" firstAttribute="top" secondItem="TrQ-d1-wm4" secondAttribute="top" id="gae-vN-Rlo"/>

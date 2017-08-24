@@ -30,8 +30,7 @@
     
     UITextView * textView = [[UITextView alloc]init];
     textView.backgroundColor = self.view.backgroundColor;
-    textView.text = [NSString stringWithFormat:@"%@",@"广州乐荟电子商务有限公司（Guangzhou lfeel electronic commerce co., LTD）隶属于广东苹果集团，总部位于广州天河，是一家具有资深行业背景，同时充满创造力和执行力的奢侈品一体化公司。乐荟致力于让奢侈变得简单！让每一个热爱时尚，专注品质的人都可以用最低的价格，享受到最高的生活体验。乐荟由一帮90后有志青年牵头组成一个极具创意的团队。\
-                     乐荟主要业务范围涉及奢侈品租赁、奢品销售、线下实体体验中心、奢侈品养护、乐荟提倡“绿色消费”，希望将环保融入时尚，致力于回收二手奢侈品进行再利用，提供包袋、服饰、腕表等商品的租赁业务。乐荟还拥有163家国际一线奢侈品牌资源，销售产品覆盖面包含服装、配饰、美妆护肤、家居用品等。" ];
+    textView.text = [NSString stringWithFormat:@"%@",@"乐荟致力于让奢侈变得简单！让每一个热爱时尚，专注品质的人都可以用最低的价格，享受到最高的生活体验。乐荟主要业务范围涉及奢侈品共享、新品代销平台以及线下实体体验中心，乐荟盒子，提出全新的消费理念、绿色的将包包、服饰、腕表、珠宝等实现超低价共享，为中国更多的年轻人带来更多、更好、更高的时尚享受，乐荟盒子不忘环保使命——'乐荟100'慈善基金将善举轻松融于消费中，融入每一位会员。乐荟盒子，正构建奢侈品的新文明时代！！！" ];
     
     textView.userInteractionEnabled = NO;
     [self.view addSubview:textView];

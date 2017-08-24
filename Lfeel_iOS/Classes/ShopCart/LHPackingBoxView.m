@@ -22,17 +22,18 @@
 - (instancetype)initWithFrame:(CGRect)frame packingStatusString:(NSString *)packingLabelStr packingButtonTitle:(NSString *)packingButtonTitle {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
-        UILabel *packLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth/3*2, frame.size.height-20)];
+        UILabel *packLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth/3*2-10, frame.size.height-20)];
         packLabel.text = packingLabelStr;
-        packLabel.font = kFont(15);
+        packLabel.font = kFont(17);
         packLabel.textColor = [UIColor lightGrayColor];
+        packLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:packLabel];
         
         UIButton *packBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
-        packBtn.frame = CGRectMake(kScreenWidth-Fit(150), 0, Fit(150), frame.size.height);
+        packBtn.frame = CGRectMake(kScreenWidth/3*2, 0, kScreenWidth/3, frame.size.height);
         [packBtn setTitle:packingButtonTitle forState:(UIControlStateNormal)];
         packBtn.backgroundColor = [UIColor redColor];
-        packBtn.titleLabel.font = kFont(15);
+        packBtn.titleLabel.font = kFont(17);
         [packBtn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
         [packBtn addTarget:self action:@selector(handldPacking:) forControlEvents:(UIControlEventTouchUpInside)];
         [self addSubview:packBtn];

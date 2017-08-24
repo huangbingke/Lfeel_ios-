@@ -181,9 +181,10 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    UITextField *txt = [alertView textFieldAtIndex:0];
-    NSLog(@"========%@========", txt.text);
-    [self HttpRequestChangeCenterMessage:txt.text];
+    if (buttonIndex == 1) {
+        UITextField *txt = [alertView textFieldAtIndex:1];
+        [self HttpRequestChangeCenterMessage:txt.text];
+    }
 }
 
 
@@ -195,7 +196,6 @@
     parameter.user_id = dic[@"user_id"];
     parameter.inviteCode = txt;
     [TSNetworking POSTWithURL:url paramsModel:parameter needProgressHUD:YES completeBlock:^(NSDictionary *request) {
-        
         if ([request[@"result"] integerValue]!=200) {
             SVShowError(request[@"msg"]);
             return ;

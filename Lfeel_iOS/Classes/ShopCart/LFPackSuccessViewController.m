@@ -22,6 +22,10 @@
     self.tabBarController.selectedIndex = 0;
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)back:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

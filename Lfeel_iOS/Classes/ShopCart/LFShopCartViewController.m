@@ -390,7 +390,7 @@
             }];
             [self.boxScrollView addSubview:packView];
         } else if ([request[@"result"] integerValue] == 200){
-            LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"   随机打包三件给你" packingButtonTitle:@"打包盒子"];
+            LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"时尚搭配师精心挑选三件发给您" packingButtonTitle:@"打包盒子"];
             [packView clickPackingButtonBlock:^(NSString *packBtnTitle) {
                 if ([[User getUseDefaultsOjbectForKey:kVipStatus] integerValue] != 1) {
                     LFVipViewController *vipVC = [[LFVipViewController alloc] init];
