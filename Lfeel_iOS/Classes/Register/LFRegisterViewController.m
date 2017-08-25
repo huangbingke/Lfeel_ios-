@@ -7,7 +7,7 @@
 //
 
 #import "LFRegisterViewController.h"
-#import "LFRegisterMinuteView.h"
+//#import "LFRegisterMinuteView.h"
 #import "NSAttributedString+YYText.h"
 #import "LFDelegateViewController.h"
 #import "TSAddressPickerView.h"
@@ -18,7 +18,7 @@
 ///  <#Description#>
 @property (weak, nonatomic) IBOutlet UILabel *ssMessageLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sendCodeBtn;
-@property (nonatomic, strong) LFRegisterMinuteView * MinuteView;
+//@property (nonatomic, strong) LFRegisterMinuteView * MinuteView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic, strong) UIView * bgView;
 
@@ -48,13 +48,11 @@
 
 @implementation LFRegisterViewController
 {
-    NSInteger selectIndex;
     NSDictionary * _dictMessage;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    selectIndex = 1;
     //设置导航栏
     [self setupNavigationBar];
     [self TapTextFeildDown];
@@ -122,12 +120,7 @@
 - (IBAction)TapRegisterBtn:(id)sender {
     SLLog2(@"注册");
     
-        if (selectIndex==1 ) {
-            _bgView.hidden = NO;
-            [self crateBgView];
-            selectIndex = 2;
-            
-        }else if (selectIndex == 2){
+    
             SLLog2(@"注册");
             
             
@@ -137,10 +130,13 @@
             
             if (![self.NewPassWordText.text isEqualToString:self.passWordText.text]) {
                 SVShowError(@"两次密码不一致");
+                if (self.NewPassWordText.text.length < 7 || self.passWordText.text.length < 7) {
+                        SVShowError(@"密码长度不能小于6位");
+                }
                 return;
             }
             [self HttpRequestRegister];
-        }
+        
         
    
 }
@@ -155,34 +151,34 @@
     
 }
 
-- (UIView *)bgView {
-    if (_bgView == nil) {
-        
-        _bgView = [UIView viewWithBgColor:RGBColor2(0, 0, 0, 0.3) frame:Rect(0, 0, kScreenWidth, kScreenHeight)];
-        LFRegisterMinuteView *MinuteView = [LFRegisterMinuteView creatViewFromNib];
-        [_bgView addSubview:MinuteView];
-        
-        self.MinuteView =MinuteView;
-        [MinuteView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(Fit375(50));
-            make.right.mas_equalTo(Fit375(-50));
-            make.centerY.offset(0);
-            make.height.mas_equalTo(Fit375(440));
-        }];
-        @weakify(self);
-        MinuteView.didClickCannceBtnBlock = ^{
-            @strongify(self);
-            self->_bgView.hidden = YES;
-        };
-        
-        MinuteView.didClickSaveBtnBlock =^(NSDictionary * dictMessage){
-            @strongify(self);
-            self->_bgView.hidden = YES;
-            self->_dictMessage = dictMessage;
-        };
-    }
-    return _bgView;
-}
+//- (UIView *)bgView {
+//    if (_bgView == nil) {
+//        
+//        _bgView = [UIView viewWithBgColor:RGBColor2(0, 0, 0, 0.3) frame:Rect(0, 0, kScreenWidth, kScreenHeight)];
+//        LFRegisterMinuteView *MinuteView = [LFRegisterMinuteView creatViewFromNib];
+//        [_bgView addSubview:MinuteView];
+//        
+//        self.MinuteView =MinuteView;
+//        [MinuteView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(Fit375(50));
+//            make.right.mas_equalTo(Fit375(-50));
+//            make.centerY.offset(0);
+//            make.height.mas_equalTo(Fit375(440));
+//        }];
+//        @weakify(self);
+//        MinuteView.didClickCannceBtnBlock = ^{
+//            @strongify(self);
+//            self->_bgView.hidden = YES;
+//        };
+//        
+//        MinuteView.didClickSaveBtnBlock =^(NSDictionary * dictMessage){
+//            @strongify(self);
+//            self->_bgView.hidden = YES;
+//            self->_dictMessage = dictMessage;
+//        };
+//    }
+//    return _bgView;
+//}
 
 
 #pragma mark - 网络请求
@@ -226,13 +222,16 @@
         if ([request[@"result"]integerValue] == 200 ) {
             SVShowSuccess(@"注册成功");
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (self.FriendCode.text) {
+                if (self.FriendCode.text.length != 0) {
                     [self showAlertViewWithTitle:@"登录有惊喜,前往我的卡包,已为您放入一张优惠券" yesHandler:^(UIAlertAction *action) {
                         
                         [self.navigationController popViewControllerAnimated:YES];
                     } noHandler:^(UIAlertAction * _Nullable action) {
                         
                     }];
+                } else {
+                    self.userPassBlock(self.iphoneText.text, self.passWordText.text);
+                    [self.navigationController popViewControllerAnimated:YES];
                 }
             });
         }else{

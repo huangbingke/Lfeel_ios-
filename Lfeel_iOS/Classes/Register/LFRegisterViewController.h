@@ -8,6 +8,48 @@
 
 #import "BaseViewController.h"
 
+
+typedef void(^UsernamePassBlock)(NSString *username, NSString *password);
+
 @interface LFRegisterViewController : BaseViewController
+
+
+@property (nonatomic, copy) UsernamePassBlock userPassBlock;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

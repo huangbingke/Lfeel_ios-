@@ -117,6 +117,10 @@
 //注册
 - (IBAction)tapRegisterBtn:(id)sender {
     LFRegisterViewController * Register = [[LFRegisterViewController alloc]init];
+    Register.userPassBlock = ^(NSString *username, NSString *password) {
+        self.iphoneText.text = username;
+        self.passWordText.text = password;
+    };
     [self.navigationController pushViewController:Register animated:YES];
 }
 

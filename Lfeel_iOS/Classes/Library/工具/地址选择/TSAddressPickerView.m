@@ -10,6 +10,9 @@
 #import "TSAddress.h"
 #import "LFAddressModel.h"
 
+
+#define kHeight  300
+
 @interface TSAddressPickerView ()<UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic,   weak) UIView * bgView;
@@ -44,7 +47,7 @@
     [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     self.bgView = bgView;
     
-    UIView * bg = [UIView viewWithBgColor:RGBColor(234, 234, 234) frame:Rect(0, kScreenHeight - 200, kScreenWidth, 200)];
+    UIView * bg = [UIView viewWithBgColor:RGBColor(234, 234, 234) frame:Rect(0, kScreenHeight - kHeight, kScreenWidth, kHeight)];
     [bgView addSubview:bg];
     bg.tag = 10;
     
@@ -60,7 +63,7 @@
     [bg addSubview:sure];
     
     
-    UIPickerView * pickerView = [[UIPickerView alloc] initWithFrame:Rect(0, 40, kScreenWidth, 200 - 40)];
+    UIPickerView * pickerView = [[UIPickerView alloc] initWithFrame:Rect(0, 40, kScreenWidth, kHeight - 40)];
     pickerView.delegate = self;
     pickerView.backgroundColor = RGBColor(246, 246, 246);
     pickerView.dataSource = self;
@@ -85,7 +88,7 @@
     self.bgView.hidden = NO;
     UIView * bg = [self.bgView viewWithTag:10];
     [UIView animateWithDuration:0.25 animations:^{
-        bg.y = kScreenHeight - 200;
+        bg.y = kScreenHeight - kHeight;
     }];
 }
 
@@ -105,25 +108,28 @@
     NSInteger c = [self.pickerView selectedRowInComponent:1];
     NSInteger d = [self.pickerView selectedRowInComponent:2];
     
-    
-    LFProvince * pro = self.array[p];
-    LFCity * city = pro.cityList[c];
-    LFRegion * dis = city.regionList[d];
-    
-    
-    LFProvince * pro1 = pro;
-    LFCity * city1 = city;
-    LFRegion * dis1 = dis;
-    pro1.cityList = nil;
-    city1.regionList = nil;
-    
-    NSDictionary * dict = @{@"province" : pro1,
-                            @"city"     : city1,
-                            @"district" : dis1};
-    
-    if (self.resultBlock) {
-        self.resultBlock(dict);
-        self.array = nil;
+    NSLog(@"%ld---%ld---%ld", p, c, d);
+    if (p < self.array.count) {
+        LFProvince * pro = self.array[p];
+        if (c < pro.cityList.count) {
+            LFCity * city = pro.cityList[c];
+            if (d < city.regionList.count) {
+                LFRegion * dis = city.regionList[d];
+                LFProvince * pro1 = pro;
+                LFCity * city1 = city;
+                LFRegion * dis1 = dis;
+                pro1.cityList = nil;
+                city1.regionList = nil;
+                NSDictionary * dict = @{@"province" : pro1,
+                                        @"city"     : city1,
+                                        @"district" : dis1};
+                
+                if (self.resultBlock) {
+                    self.resultBlock(dict);
+                    self.array = nil;
+                }
+            }
+        }
     }
     [self tap];
 }
@@ -131,14 +137,10 @@
     return 3;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (component == 0) {
-        
         return self.array.count;
-        
     } else if (component == 1) {
-        
         LFProvince * p = self.array[self.selectProvince];
         return p.cityList.count;
     }
@@ -149,8 +151,7 @@
 
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (component == 0) {
         
         LFProvince * p = self.array[row];
@@ -188,8 +189,7 @@
         [pickerView selectRow:0 inComponent:2 animated:YES];
     }
 }
-- (NSArray *)array
-{
+- (NSArray *)array {
     if (!_array) {
         NSArray * arr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"address.plist" ofType:nil]];
         _array = [NSArray yy_modelArrayWithClass:[LFProvince class] json:arr];
