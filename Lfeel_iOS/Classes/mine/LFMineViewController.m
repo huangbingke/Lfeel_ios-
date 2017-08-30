@@ -22,12 +22,13 @@
 #import "LFDistributionViewController.h"
 #import "LFCardBagViewController.h"
 
-@interface LFMineViewController ()<UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
+@interface LFMineViewController ()<UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic,   weak) UITableView * minetabbleView;
 @property (nonatomic, strong) LFMineHearderView * headerView;
 @property (nonatomic, assign) CGFloat dragDelta;
 
 @property (nonatomic, assign) NSInteger isAgentID;
+@property (nonatomic, copy) NSString *parent_id;
 
 @end
 
@@ -49,10 +50,17 @@
     }
     
     NSDictionary *dic = [User getUseDefaultsOjbectForKey:KLogin_Info];
+    self.parent_id = (NSString *)[User getUseDefaultsOjbectForKey:kParent_id];
     self.isAgentID = [dic[@"isAgent"] integerValue];
-    NSLog(@"~~~~~~%ld", _isAgentID);
+    NSLog(@"~~~~~~%ld------%@", _isAgentID, self.parent_id);
     if (_isAgentID == 0) {
-        self.headerView.QRCodeBtn.hidden = YES;
+        if (self.parent_id.length > 0) {
+            self.headerView.QRCodeBtn.hidden = NO;
+
+        } else {
+            self.headerView.QRCodeBtn.hidden = YES;
+            
+        }
     } else {
         self.headerView.QRCodeBtn.hidden = NO;
     }
@@ -132,7 +140,13 @@
     if (self.isAgentID != 0) {
         self.headerView.QRCodeBtn.hidden = NO;
     } else {
-        self.headerView.QRCodeBtn.hidden = YES;
+        if (self.parent_id.length > 0) {
+            self.headerView.QRCodeBtn.hidden = NO;
+            
+        } else {
+            self.headerView.QRCodeBtn.hidden = YES;
+            
+        }
     }
     self.headerView.didClickOrderBlock = ^(NSInteger index) {
         @strongify(self);
@@ -143,6 +157,50 @@
     
     [_header addSubview:self.headerView];
     return _header;
+}
+
+- (void)setQRcodeViewWith:(NSString *)url {
+    UIView * bgView = [UIView viewWithBgColor:[HexColorInt32_t(000000) colorWithAlphaComponent:0.5] frame:[UIScreen mainScreen].bounds];
+    [[UIApplication sharedApplication].keyWindow addSubview:bgView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleWindowAction:)];
+    tap.delegate = self;
+    [bgView addGestureRecognizer:tap];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake((kScreenWidth-200)/2, (kScreenHeight-250)/2, 200, 250)];
+    [bgView addSubview:view];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.width)];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"place_flat"]];
+    imageView.userInteractionEnabled = YES;
+    [view addSubview:imageView];
+    
+    UIButton *shareBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    shareBtn.frame = CGRectMake(0, view.frame.size.width + 10, view.frame.size.width, 40);
+    [shareBtn setTitle:@"分享给好友" forState:(UIControlStateNormal)];
+    [shareBtn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    shareBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    shareBtn.layer.borderWidth = 1;
+    [view addSubview:shareBtn];
+    [shareBtn addTarget:self action:@selector(shareBtnAction) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    
+}
+
+- (void)shareBtnAction {
+    NSLog(@"分享");
+    
+    
+}
+//防止手势冲突——防止UITableView的点击事件和手势事件冲突
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    // 输出点击的view的类名
+    // NSLog(@"%@", NSStringFromClass([touch.view class]));
+    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UIImageView"] || [NSStringFromClass([touch.view class]) isEqualToString:@"UIButton"]) {
+        return NO;
+    }
+    return  YES;
 }
 
 - (void)showQRCode {
@@ -156,24 +214,21 @@
     LFParameter *paeme = [LFParameter new];
     NSDictionary *dic = [User getUseDefaultsOjbectForKey:KLogin_Info];
     paeme.loginKey = user_loginKey;
-    [TSNetworking POSTWithURL:url paramsModel:@{@"id": dic[@"user_id"]} needProgressHUD:YES completeBlock:^(NSDictionary *request) {
+    NSString *parent_id = [User getUseDefaultsOjbectForKey:kParent_id];
+    NSString *id_ = nil;
+    if (parent_id.length > 0) {
+        id_ = parent_id;
+    } else {
+        id_ = dic[@"user_id"];
+    }
+    
+    [TSNetworking POSTWithURL:url paramsModel:@{@"id": id_} needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         SLLog(request);
         if ([request[@"result"] integerValue] != 200) {
             SVShowError(request[@"msg"]);
             return ;
         } else {
-            UIView * bgView = [UIView viewWithBgColor:[HexColorInt32_t(000000) colorWithAlphaComponent:0.5] frame:[UIScreen mainScreen].bounds];
-            [[UIApplication sharedApplication].keyWindow addSubview:bgView];
-            
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleWindowAction:)];
-            [bgView addGestureRecognizer:tap];
-            
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(80, 150, kScreenWidth-160, kScreenWidth-160)];
-            [bgView addSubview:view];
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:request[@"url"]] placeholderImage:[UIImage imageNamed:@""]];
-            [view addSubview:imageView];
+            [self setQRcodeViewWith:request[@"url"]];
         }
     } failBlock:^(NSError *error) {
         SLLog(error);

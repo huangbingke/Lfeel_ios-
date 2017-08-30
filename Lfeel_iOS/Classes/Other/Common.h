@@ -166,7 +166,7 @@ return !(_dictionary) ? (_dictionary) = [NSDictionary dictionary] : (_dictionary
 
 #define kVipStatus    @"kVipStatus"
 
-
+#define kParent_id    @"kParent_id"
 
 
 

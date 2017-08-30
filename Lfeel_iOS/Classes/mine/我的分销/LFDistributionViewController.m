@@ -348,9 +348,7 @@
     NSString * url =@"agent/show.htm?";
     LFParameter *paeme = [LFParameter new];
     NSDictionary *dic = [User getUseDefaultsOjbectForKey:KLogin_Info];
-    
     NSLog(@"%@", dic[@"user_id"]);
-    
     paeme.user_id = dic[@"user_id"];
     paeme.start = 0;
     paeme.end = 20;

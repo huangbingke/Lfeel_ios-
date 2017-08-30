@@ -68,6 +68,7 @@
     [User removeUseDefaultsForKey:KLogin_Info];
     [User removeCenterUserInfomation];
     [User removeUseDefaultsForKey:kVipStatus];
+    [User removeUseDefaultsForKey:kParent_id];
 }
 
 

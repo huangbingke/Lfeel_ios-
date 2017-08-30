@@ -588,7 +588,6 @@
     }
     [view addSubview:contentView];
     CGFloat y = kScreenHeight - contentView.height;
-    
     [UIView animateWithDuration:0.25 animations:^{
         contentView.y = y;
     }];
