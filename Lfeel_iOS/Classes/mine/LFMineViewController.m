@@ -21,6 +21,9 @@
 #import "SLOrdersVC.h"
 #import "LFDistributionViewController.h"
 #import "LFCardBagViewController.h"
+#import "LFShareView.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import "SLShareHelper.h"
 
 @interface LFMineViewController ()<UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic,   weak) UITableView * minetabbleView;
@@ -29,7 +32,7 @@
 
 @property (nonatomic, assign) NSInteger isAgentID;
 @property (nonatomic, copy) NSString *parent_id;
-
+@property (nonatomic, strong) LFShareView * shareView;
 @end
 
 @implementation LFMineViewController
@@ -184,12 +187,30 @@
     [view addSubview:shareBtn];
     [shareBtn addTarget:self action:@selector(shareBtnAction) forControlEvents:(UIControlEventTouchUpInside)];
     
+    self.shareView = [LFShareView creatViewFromNib];
+    self.shareView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, Fit(140));
+    self.shareView.didClickBtnBlock = ^(BOOL cancel, NSInteger index) {
+        if (!cancel) {
+            UMSocialPlatformType types[] = {UMSocialPlatformType_WechatSession, UMSocialPlatformType_WechatTimeLine, UMSocialPlatformType_QQ, UMSocialPlatformType_Sina};
+            [SLShareHelper shareTitle:@"aaaaa" desc:@"bbbb" url:@"www.baidu.com" image:nil Plantform:types[index] callBack:^(BOOL success) {
+                NSString * txt = (success ? @"分享成功" : @"分享失败");
+                SVShowSuccess(txt);
+            }];
+        }
+    };
+    [bgView addSubview:self.shareView];
     
 }
 
 - (void)shareBtnAction {
     NSLog(@"分享");
-    
+    [UIView animateWithDuration:0.2 animations:^{
+       CGPoint point = self.shareView.center;
+        point.y = point.y-Fit(140);
+        self.shareView.center = point;
+    } completion:^(BOOL finished) {
+        
+    }];
     
 }
 //防止手势冲突——防止UITableView的点击事件和手势事件冲突

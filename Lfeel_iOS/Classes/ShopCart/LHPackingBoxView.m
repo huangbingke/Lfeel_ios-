@@ -24,7 +24,7 @@
         self.backgroundColor = [UIColor whiteColor];
         UILabel *packLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth/3*2-10, frame.size.height-20)];
         packLabel.text = packingLabelStr;
-        packLabel.font = kFont(17);
+        packLabel.font = kFont(15);
         packLabel.textColor = [UIColor lightGrayColor];
         packLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:packLabel];

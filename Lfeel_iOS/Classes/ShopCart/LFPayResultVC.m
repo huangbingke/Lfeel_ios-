@@ -107,6 +107,7 @@
             [User removeUseDefaultsForKey:kVipStatus];
             [User saveUseDefaultsOjbect:request[@"isVip"] forKey:kVipStatus];
             
+            
         } else {
 //            SVShowError(request[@"msg"]);
         }
@@ -190,8 +191,8 @@
     return _successView;
 }
 
+
 - (UIView *)_makeInfoView:(NSString *)key value:(NSString *)value {
-    
     UIView * infoView = [UIView viewWithBgColor:[UIColor whiteColor] frame:Rect(0, 0, kScreenWidth, Fit(44))];
     UILabel * keyLabel = [UILabel labelWithText:key font:Fit(14) textColor:HexColorInt32_t(999999) frame:Rect(Fit(15), 0, 1, 1)];
     [keyLabel sizeToFit];

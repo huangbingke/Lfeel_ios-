@@ -112,7 +112,7 @@ static NSString * const kIdentifier = @"LFBrandCell";
     NSString * url = @"category/hotBrandList.htm?";
     LFParameter * par = [LFParameter new];
     par.startPage = self.startPage;
-    [self.collectionView.mj_footer resetNoMoreData];
+//    [self.collectionView.mj_footer resetNoMoreData];
     [TSNetworking POSTWithURL:url paramsModel:par completeBlock:^(NSDictionary *request) {
         SLLog(request);
         SLEndRefreshing(self.collectionView);
@@ -140,7 +140,8 @@ static NSString * const kIdentifier = @"LFBrandCell";
 
 
 #pragma mark - Delegate
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {return self.brands.count;
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.brands.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

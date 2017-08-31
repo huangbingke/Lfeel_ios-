@@ -149,6 +149,7 @@
         }
         
     } failBlock:^(NSError *error) {
+        NSLog(@"--------------------------------- >>>>>>>>>>>>>>> %@", error);
         SLShowNetworkFail;
     }];
 }

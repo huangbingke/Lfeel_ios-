@@ -168,5 +168,6 @@ return !(_dictionary) ? (_dictionary) = [NSDictionary dictionary] : (_dictionary
 
 #define kParent_id    @"kParent_id"
 
-
+//实名认证
+#define kSMRZ         @"SMRZ"
 

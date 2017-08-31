@@ -408,13 +408,9 @@
         }
         imageUrl = request[@"imgUrl"];
         [self.usericonBtn sd_setImageWithURL:[NSURL URLWithString:imageUrl] forState:(UIControlStateNormal)];
-        
-        
-        
     } failBlock:^(NSError *error) {
         
     }];
-    
 }
 
 #pragma mark

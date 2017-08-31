@@ -19,6 +19,8 @@
 		0F2F17D91F31D8AA006DE053 /* LFClothesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F2F17D81F31D8AA006DE053 /* LFClothesHeaderView.xib */; };
 		0F2F17DC1F32B014006DE053 /* LFChooseSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2F17DB1F32B014006DE053 /* LFChooseSizeView.m */; };
 		0F2F17DE1F32B031006DE053 /* LFChooseSizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F2F17DD1F32B031006DE053 /* LFChooseSizeView.xib */; };
+		0F31752F1F57B58C00208DD0 /* LFCertificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F31752D1F57B58C00208DD0 /* LFCertificationViewController.m */; };
+		0F3175301F57B58C00208DD0 /* LFCertificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F31752E1F57B58C00208DD0 /* LFCertificationViewController.xib */; };
 		0F33552B1F0CB58C0056FEA9 /* LFDistributionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33552A1F0CB58C0056FEA9 /* LFDistributionViewController.m */; };
 		0F33552E1F0CBAA70056FEA9 /* LFDistributionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33552D1F0CBAA70056FEA9 /* LFDistributionHeaderView.m */; };
 		0F3355311F0CBD430056FEA9 /* LHSegmentControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3355301F0CBD430056FEA9 /* LHSegmentControlView.m */; };
@@ -644,6 +646,9 @@
 		0F2F17DA1F32B014006DE053 /* LFChooseSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFChooseSizeView.h; sourceTree = "<group>"; };
 		0F2F17DB1F32B014006DE053 /* LFChooseSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFChooseSizeView.m; sourceTree = "<group>"; };
 		0F2F17DD1F32B031006DE053 /* LFChooseSizeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFChooseSizeView.xib; sourceTree = "<group>"; };
+		0F31752C1F57B58C00208DD0 /* LFCertificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCertificationViewController.h; sourceTree = "<group>"; };
+		0F31752D1F57B58C00208DD0 /* LFCertificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCertificationViewController.m; sourceTree = "<group>"; };
+		0F31752E1F57B58C00208DD0 /* LFCertificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFCertificationViewController.xib; sourceTree = "<group>"; };
 		0F3355291F0CB58C0056FEA9 /* LFDistributionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDistributionViewController.h; sourceTree = "<group>"; };
 		0F33552A1F0CB58C0056FEA9 /* LFDistributionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDistributionViewController.m; sourceTree = "<group>"; };
 		0F33552C1F0CBAA70056FEA9 /* LFDistributionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDistributionHeaderView.h; sourceTree = "<group>"; };
@@ -2654,6 +2659,9 @@
 			children = (
 				8860D9CC1E5D757800E1F72A /* LFMineViewController.h */,
 				8860D9CD1E5D757800E1F72A /* LFMineViewController.m */,
+				0F31752C1F57B58C00208DD0 /* LFCertificationViewController.h */,
+				0F31752D1F57B58C00208DD0 /* LFCertificationViewController.m */,
+				0F31752E1F57B58C00208DD0 /* LFCertificationViewController.xib */,
 				143974591E9A776E00F3A0A9 /* View */,
 				1400EBB11E8804640084D4B1 /* 我的订单 */,
 				8800F6C91E81256700233412 /* 租用流程 */,
@@ -4159,6 +4167,7 @@
 				189BF00D1E5D32E500A5CA5C /* photo_sel_previewVc@2x.png in Resources */,
 				88F7372B1E63E73100E3B979 /* LFBagHeader.xib in Resources */,
 				88F7374F1E641E6600E3B979 /* LFSelectBankHeader.xib in Resources */,
+				0F3175301F57B58C00208DD0 /* LFCertificationViewController.xib in Resources */,
 				88B72FD71E659FE100DBE93D /* LFMineAddressFooterView.xib in Resources */,
 				1450C35E1E6C46B600789371 /* LFGoodsListVC.xib in Resources */,
 				1450C3631E6C655200789371 /* LFGoodsCell.xib in Resources */,
@@ -4436,6 +4445,7 @@
 				189BEEF71E5D32E500A5CA5C /* SLInputAccessoryView.m in Sources */,
 				884344C11E694A64000615CE /* LFHomeHeaderView.m in Sources */,
 				189BEFCE1E5D32E500A5CA5C /* RACStringSequence.m in Sources */,
+				0F31752F1F57B58C00208DD0 /* LFCertificationViewController.m in Sources */,
 				88BC56C61E6AB261005A23F2 /* SDWebImagePrefetcher.m in Sources */,
 				189BEF831E5D32E500A5CA5C /* MWPhotoBrowser.m in Sources */,
 				88E448E11E680A1700091DFB /* JSONModelClassProperty.m in Sources */,

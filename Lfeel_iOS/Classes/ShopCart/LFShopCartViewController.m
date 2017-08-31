@@ -18,7 +18,7 @@
 #import "LFPackSuccessViewController.h"
 #import "LFPackViewController.h"
 #import "LFVipViewController.h"
-
+#import "LFCertificationViewController.h"
 ///order/application.htm?user_id=&type=&remark=&bank_no=&price=
 
 
@@ -55,6 +55,13 @@
     startPage = 0;
     [self.datas removeAllObjects];
     [self HTTPRequset];
+    
+
+    if ([[User getUseDefaultsOjbectForKey:kVipStatus] integerValue] == 1) {
+        if ([[User getUseDefaultsOjbectForKey:kSMRZ] integerValue] != 1) {
+            [self requestIsVipData];
+        }
+    }
 
 }
 - (void)viewDidLoad {
@@ -393,12 +400,19 @@
             LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"时尚搭配师精心挑选三件发给您" packingButtonTitle:@"打包盒子"];
             [packView clickPackingButtonBlock:^(NSString *packBtnTitle) {
                 if ([[User getUseDefaultsOjbectForKey:kVipStatus] integerValue] != 1) {
+                    
                     LFVipViewController *vipVC = [[LFVipViewController alloc] init];
                     vipVC.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vipVC animated:YES];
                     
                 } else {
-                    [self requestPackBoxData];
+                    if ([[User getUseDefaultsOjbectForKey:kSMRZ] integerValue] != 1) {
+                        LFCertificationViewController *cvc = [[LFCertificationViewController alloc] init];
+                        [self presentViewController:cvc animated:YES completion:nil];
+                    } else {
+                        
+                        [self requestPackBoxData];
+                    }
                 }
                 
             }];
@@ -410,6 +424,7 @@
 }
 
 - (void)requestPackBoxData {
+    //普通订单, 租赁订单, 
     NSDictionary *dic = [User getUseDefaultsOjbectForKey:KLogin_Info];
     NSString * url =@"order/application.htm?";
     LFParameter *paeme = [LFParameter new];
@@ -434,6 +449,27 @@
     
     
 }
+
+
+// 判断有没有实名认证通过
+- (void)requestIsVipData {
+    NSDictionary *dic = [User getUseDefaultsOjbectForKey:KLogin_Info];
+    LFParameter *param = [[LFParameter alloc] init];
+    param.user_id = dic[@"user_id"];
+    [TSNetworking POSTWithURL:@"personal/isVip.htm?" paramsModel:param completeBlock:^(NSDictionary *request) {
+        SLLog(request);
+        if ([request[@"result"] integerValue] == 200) {
+            [User removeUseDefaultsForKey:kVipStatus];
+            [User saveUseDefaultsOjbect:request[@"isVip"] forKey:kVipStatus];
+            [User removeUseDefaultsForKey:kSMRZ];
+            [User saveUseDefaultsOjbect:request[@"isReal"] forKey:kSMRZ];
+            
+        }
+    } failBlock:^(NSError *error) {
+        SLLog(error);
+    }];
+}
+
 
 #pragma mark - Delegate
 

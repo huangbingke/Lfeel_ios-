@@ -32,6 +32,12 @@
 @property (nonatomic,   copy) NSString * passWord;
 @property (nonatomic,   copy) NSString * password;
 
+@property (nonatomic,   copy) NSString * id_url;
+@property (nonatomic,   copy) NSString * trueName;
+@property (nonatomic,   copy) NSString * id_No;
+
+
+
 @property (nonatomic,   copy) NSString * type;
 @property (nonatomic,   copy) NSString * mobilePhone;
 @property (nonatomic,   copy) NSString * smsCode;
@@ -69,7 +75,7 @@
 @property (nonatomic,   copy) NSString * cityId;
 @property (nonatomic,   copy) NSString * areaInfo;
 @property (nonatomic,   copy) NSString * addressId;
-@property (nonatomic,   copy) NSString * trueName;
+//@property (nonatomic,   copy) NSString * trueName;
 @property (nonatomic,   copy) NSString * identification;
 @property (nonatomic,   copy) NSString * sex;
 @property (nonatomic,   copy) NSString * birthday;
