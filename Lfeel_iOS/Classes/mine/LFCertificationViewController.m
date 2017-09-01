@@ -8,6 +8,8 @@
 
 #import "LFCertificationViewController.h"
 #import "SLImagePickerController.h"
+#import "LFCenterViewController.h"
+
 @interface LFCertificationViewController ()
 
 
@@ -58,7 +60,16 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD showSuccess:@"已提交申请,24小时之内处理"];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"为了获得更好的体验, 建议完善个人信息!" message:nil preferredStyle:(UIAlertControllerStyleAlert)];
+                    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                        LFCenterViewController *centerVC = [[LFCenterViewController alloc] init];
+                        [self.navigationController pushViewController:centerVC animated:YES];
+                        
+                    }]];
+                    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }]];
+                    [self presentViewController:alertVC animated:YES completion:nil];
                 });
             });
         } else {

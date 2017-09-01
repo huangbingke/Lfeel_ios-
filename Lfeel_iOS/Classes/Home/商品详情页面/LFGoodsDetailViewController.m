@@ -190,7 +190,7 @@
             if (user_loginKey == nil) {
                 [self isLoginVC];
             }else{
-            [self _requestAddToCartData:self.parmeDict];
+                [self _requestAddToCartData:self.parmeDict];
             }
         }
     };
@@ -210,7 +210,7 @@
             if (user_loginKey == nil) {
                 [self isLoginVC];
             }else{
-            [self _requestBuyGoodsData:self.parmeDict];
+                [self _requestBuyGoodsData:self.parmeDict];
             }
             
         }
@@ -405,6 +405,7 @@
         };
         self.SeleSizeView.didTapSureBtn = ^(NSDictionary * dict){
             @strongify(self);
+            
             self.parmeDict = dict;
             if (self->_isSelectSize == YES) {
             }else{

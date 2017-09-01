@@ -79,7 +79,7 @@
 }
 
 
-///  初始化子控件
+//  初始化子控件
 - (void)setupSubViews {
     CGFloat f = 49;
     if (self.isSubPage) {
@@ -408,7 +408,7 @@
                 } else {
                     if ([[User getUseDefaultsOjbectForKey:kSMRZ] integerValue] != 1) {
                         LFCertificationViewController *cvc = [[LFCertificationViewController alloc] init];
-                        [self presentViewController:cvc animated:YES completion:nil];
+                        [self.navigationController pushViewController:cvc animated:YES];
                     } else {
                         
                         [self requestPackBoxData];
