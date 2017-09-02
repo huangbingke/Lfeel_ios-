@@ -352,9 +352,15 @@
 
 #pragma Http
 -(void)HttpRequestChangeCenterMessage{
-    
+    SLVerifyText(self.nameText.text.length, @"请输入姓名");
+    SLVerifyText(self.weightText.text.length, @"请输入体重");
+    SLVerifyText(self.heightText.text.length, @"请输入身高");
+    SLVerifyText(self->hipline.length, @"请输入臀围");
+    SLVerifyText(self->bust.length, @"请输入胸围");
+    SLVerifyText(self->waist.length, @"请输入腰围");
+    SLVerifyText(self.sexLabel.text.length, @"请输入性别");
+    SLVerifyText(self.SizeLabel.text.length, @"请输入尺码");
 
-    
     // 加入正则判断
     if (self.phoneText.hasText) {
         SLVerifyPhone(self.phoneText.text, @"手机号码不正确");
