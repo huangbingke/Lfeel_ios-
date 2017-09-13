@@ -141,6 +141,7 @@
             [User saveUserInfomation:request];
             [User saveUseDefaultsOjbect:request[@"isVip"] forKey:kVipStatus];
 //            NSLog(@"++++++%@", [User getUseDefaultsOjbectForKey:KLogin_Info]);
+            
             [User saveUseDefaultsOjbect:request[@"parent_id"] forKey:kParent_id];
 
             [self dismissViewControllerAnimated:YES completion:nil];

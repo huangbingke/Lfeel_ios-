@@ -54,6 +54,11 @@
     
     NSDictionary *dic = [User getUseDefaultsOjbectForKey:KLogin_Info];
     self.parent_id = (NSString *)[User getUseDefaultsOjbectForKey:kParent_id];
+    if (self.parent_id.length <= 0) {
+        self.parent_id = (NSString *)dic[@"user_id"];
+    }
+    
+    
     self.isAgentID = [dic[@"isAgent"] integerValue];
     NSLog(@"~~~~~~%ld------%@", _isAgentID, self.parent_id);
     if (_isAgentID == 0) {

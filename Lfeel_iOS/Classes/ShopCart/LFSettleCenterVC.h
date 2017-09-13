@@ -14,4 +14,7 @@
 @property (nonatomic,   copy) NSArray<LFGoods *> * goodses;
 ///  购物车商品ID，以；隔开
 @property (nonatomic,   copy) NSString * goodsCartIds;
+
+
+
 @end

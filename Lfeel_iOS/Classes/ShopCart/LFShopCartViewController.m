@@ -103,7 +103,7 @@
     self.boxHeigh = h;
     bottomView.frame = Rect(kScreenWidth, kScreenHeight -64- f - h, kScreenWidth, h);
     [self.boxScrollView addSubview:bottomView];
-    
+    //去结算
         @weakify(self);
         bottomView.didClickSettleBtnBlock = ^{
             @strongify(self);
