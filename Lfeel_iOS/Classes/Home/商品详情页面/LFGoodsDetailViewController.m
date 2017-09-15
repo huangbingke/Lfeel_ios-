@@ -135,7 +135,7 @@
 
 -(void)CreateView{
     
-    UITableView *tabbleView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight-0) style:UITableViewStyleGrouped];
+    UITableView *tabbleView = [[UITableView alloc]initWithFrame:CGRectMake(0,64, kScreenWidth, kScreenHeight-0) style:UITableViewStyleGrouped];
     tabbleView.delegate =self;
     tabbleView.dataSource = self;
     self.tabbleView = tabbleView;
