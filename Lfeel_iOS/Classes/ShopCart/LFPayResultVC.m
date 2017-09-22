@@ -34,7 +34,7 @@
 //    BaseNavigationController * base = (BaseNavigationController *)main.selectedViewController;
 //    base.gestureRecognizerEnabled = NO;
     
-    
+    NSLog(@"!!!!!!!!!!!!!!!__________________%d", self.success);
 
     
 }

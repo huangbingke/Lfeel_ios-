@@ -93,7 +93,8 @@
  
     NSMutableString * attr = [NSMutableString new];
     if (_selectedColor) {
-        [attr appendFormat:@"%@", _selectedColor.name];
+         //gsp	属性，以;隔开	string	@mock=XL;黑色
+        [attr appendFormat:@"%@;", _selectedColor.name];
     }
     if (_selectedSize) {
         [attr appendFormat:@"%@", _selectedSize.name];

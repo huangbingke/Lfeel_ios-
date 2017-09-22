@@ -206,7 +206,6 @@
 ///  发起支付
 - (void)_sendPay {
     NSDictionary * request = self.orderInfo;
-    NSLog(@"--------------------%@", self.orderInfo);
     if ([request[@"totalPrice"] isEqualToString:@"0.0"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入登录密码" message:@"输入密码,确认身份,减掉优惠券响应价格." delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
         [alert setAlertViewStyle:UIAlertViewStyleSecureTextInput];
@@ -239,7 +238,9 @@
     }
     @weakify(self);
     NSString * price = [NSString stringWithFormat:@"%.0f",  [request[@"totalPrice"] doubleValue] * 100];
+    
     [LFPayHelper payWithType:self.payType price:price orderNum:request[@"orderCode"] showInViewController:self completionHandle:^(BOOL success, NSString *msg) {
+        
         @strongify(self);
         LFPayResultVC * controller = [[LFPayResultVC alloc] init];
         controller.success = success;

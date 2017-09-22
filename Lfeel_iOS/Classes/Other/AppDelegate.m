@@ -160,12 +160,6 @@ static char kScreenShotViewMove[] = "screenShotViewMove";
 }
 
 
-
-
-
-
-
-
 ///  截屏view
 - (void)setupScreenView {
     
@@ -175,7 +169,7 @@ static char kScreenShotViewMove[] = "screenShotViewMove";
     [self.window insertSubview:self.screenShotView atIndex:0];
     
     // 添加监听
-//    [self ts_addObserver];
+    [self ts_addObserver];
 }
 
 /// 添加监听

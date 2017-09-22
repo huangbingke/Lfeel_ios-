@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lfeel_iOS/Classes/ShopCart/LFSettleCenterVC.m"
-            timestampString = "526961505.445926"
+            filePath = "Lfeel_iOS/Classes/ShopCart/LFPayHelper.m"
+            timestampString = "527736168.169271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-_requestAddOrderData"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "+payWithType:price:orderNum:showInViewController:completionHandle:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lfeel_iOS/Classes/ShopCart/LFPayHelper.m"
+            timestampString = "527736752.59971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "+payWithType:price:orderNum:showInViewController:completionHandle:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
