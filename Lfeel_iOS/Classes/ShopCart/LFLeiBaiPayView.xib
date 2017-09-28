@@ -527,7 +527,7 @@
                 <outlet property="_stagesView" destination="vde-4L-Lfd" id="eb6-ur-jPY"/>
                 <outlet property="_totalMoney" destination="Zcp-Kw-OK5" id="Nse-cz-v6V"/>
             </connections>
-            <point key="canvasLocation" x="-224" y="-216"/>
+            <point key="canvasLocation" x="-224.5" y="-216.5"/>
         </view>
         <view contentMode="scaleToFill" id="cpR-ua-c4d" customClass="LFLeiBaiPayView2">
             <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
@@ -1124,7 +1124,7 @@
                 <outlet property="verify" destination="squ-J9-0W3" id="h0H-2F-w62"/>
                 <outlet property="year" destination="af6-9f-C7C" id="Vzi-lL-PR7"/>
             </connections>
-            <point key="canvasLocation" x="-115.5" y="519.5"/>
+            <point key="canvasLocation" x="190" y="-230"/>
         </view>
         <view contentMode="scaleToFill" id="nwa-TY-Fre" customClass="LFLeiBaiPayView3">
             <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
@@ -1644,7 +1644,7 @@
                 <outlet property="verify" destination="cBw-pa-KUy" id="qms-KR-iTH"/>
                 <outlet property="year" destination="mC5-gB-ODX" id="jCM-ed-VzU"/>
             </connections>
-            <point key="canvasLocation" x="-115" y="1198"/>
+            <point key="canvasLocation" x="613" y="-217"/>
         </view>
     </objects>
     <resources>

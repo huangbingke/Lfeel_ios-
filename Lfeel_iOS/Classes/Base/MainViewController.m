@@ -93,7 +93,7 @@
     UIViewController * vc = nav.topViewController;
     
     if ([vc isKindOfClass:[LFMineViewController class]] || [vc isKindOfClass:[LFShopCartViewController class]]) {
-        BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFLoginViewController new]];
+        BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFSecurityViewController new]];
         [self presentViewController:b animated:YES completion:nil];
         return NO;
     }

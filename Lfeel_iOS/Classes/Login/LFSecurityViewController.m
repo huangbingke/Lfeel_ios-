@@ -37,26 +37,26 @@
     
     @weakify(self);
     NSString * title = @"登 录";
-    if (self.isBind) {
-        title = @"绑定手机";
-        self.loginBtn.title = @"确定";
-    }
+//    if (self.isBind) {
+//        title = @"绑定手机";
+//        self.loginBtn.title = @"确定";
+//    }
     self.ts_navgationBar = [TSNavigationBar navWithTitle:title backAction:^{
         @strongify(self);
-        [self.navigationController popViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
-    
 }
 - (IBAction)TapSelectLogin:(id)sender {
     [self.view endEditing:YES];
     SLVerifyPhone(self.iphoneText.text, @"请输入正确的手机号码");
     SLVerifyText(self.VifftyCodeText.text,  @"请输入验证码");
 
-    if (self.isBind) {
-        [self _requestBindData];
-        return;
-    }
-    [self HttpRequestLogin];
+//    if (self.isBind) {
+//        [self _requestBindData];
+//        return;
+//    }
+//    [self HttpRequestLogin];
+    [self requestSmsCodeLogin];
 }
 - (IBAction)selecteTapVerifyBtn:(UIButton *)sender {
     
@@ -91,50 +91,88 @@
 }
 
 
--(void)HttpRequestLogin{
-    NSString * url =@"login/login.htm?";
-    LFParameter *paeme = [LFParameter new];
-    paeme.mobilePhone = self.iphoneText.text;
-    paeme.passWord = self.VifftyCodeText.text; //
-    paeme.type = @"2";//1=密码登录；2=验证码登录
-    [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
-        
-        SLLog2(@"requess :%@", request);
-        
+/**
+ 验证码登录
+ */
+- (void)requestSmsCodeLogin {
+    LFParameter *param = [LFParameter new];
+    
+    
+    param.mobilePhone = self.iphoneText.text;
+    param.smsCode = self.VifftyCodeText.text;
+    [TSNetworking POSTWithURL:@"login/verifylogin.htm?" paramsModel:param completeBlock:^(NSDictionary *request) {
+        NSLog(@"%@", request);
         if ([request[@"result"] integerValue]==200) {
+            [self removeUserInfo];
+            //  NSLog(@"~~~~~~%@", [User getUseDefaultsOjbectForKey:KLogin_Info]);
+//            [User saveUseDefaultsOjbect:request forKey:KLogin_Info];
+//            [User saveUserInfomation:request];
+//            [User saveUseDefaultsOjbect:request[@"isVip"] forKey:kVipStatus];
+//            [User saveUseDefaultsOjbect:request[@"parent_id"] forKey:kParent_id];
+            
+            [User saveUseDefaultsOjbect:request forKey:KLogin_Info];
             [User saveUserInfomation:request];
+            [User saveUseDefaultsOjbect:request[@"isVip"] forKey:kVipStatus];
+            [User saveUseDefaultsOjbect:request[@"parent_id"] forKey:kParent_id];
+            
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             SVShowError(request[@"msg"]);
         }
         
     } failBlock:^(NSError *error) {
-        SLShowNetworkFail;
-    }];
-}
-
-///  绑定手机
-- (void)_requestBindData {
-    NSString * url =@"login/mobile_bind.htm?";
-    LFParameter *paeme = [LFParameter new];
-    paeme.mobilePhone = self.iphoneText.text;
-    paeme.smsCode = self.VifftyCodeText.text;
-    paeme.loginKey = self.loginKey;
-    [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         
-        SLLog2(@"requess :%@", request);
-        
-        if ([request[@"result"] integerValue]==200) {
-            [User saveUserInfomation:@{@"loginKey" : self.loginKey}];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            SVShowError(request[@"msg"]);
-        }
-        
-    } failBlock:^(NSError *error) {
-        SLShowNetworkFail;
     }];
     
 }
+
+
+
+
+//-(void)HttpRequestLogin{
+//    NSString * url =@"login/login.htm?";
+//    LFParameter *paeme = [LFParameter new];
+//    paeme.mobilePhone = self.iphoneText.text;
+//    paeme.passWord = self.VifftyCodeText.text; //
+//    paeme.type = @"2";//1=密码登录；2=验证码登录
+//    [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
+//        
+//        SLLog2(@"requess :%@", request);
+//        
+//        if ([request[@"result"] integerValue]==200) {
+//            [User saveUserInfomation:request];
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        } else {
+//            SVShowError(request[@"msg"]);
+//        }
+//        
+//    } failBlock:^(NSError *error) {
+//        SLShowNetworkFail;
+//    }];
+//}
+//
+/////  绑定手机
+//- (void)_requestBindData {
+//    NSString * url =@"login/mobile_bind.htm?";
+//    LFParameter *paeme = [LFParameter new];
+//    paeme.mobilePhone = self.iphoneText.text;
+//    paeme.smsCode = self.VifftyCodeText.text;
+//    paeme.loginKey = self.loginKey;
+//    [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
+//        
+//        SLLog2(@"requess :%@", request);
+//        
+//        if ([request[@"result"] integerValue]==200) {
+//            [User saveUserInfomation:@{@"loginKey" : self.loginKey}];
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        } else {
+//            SVShowError(request[@"msg"]);
+//        }
+//        
+//    } failBlock:^(NSError *error) {
+//        SLShowNetworkFail;
+//    }];
+//    
+//}
 
 @end

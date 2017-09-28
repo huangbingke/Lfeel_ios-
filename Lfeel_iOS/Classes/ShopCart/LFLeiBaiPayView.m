@@ -178,6 +178,7 @@
 
 @end
 
+#pragma mark -----------------------------------------------------------------------------------------------------------------------
 
 @implementation LFLeiBaiPayView2 {
     
@@ -227,6 +228,10 @@
 
 
 @end
+
+
+#pragma mark -----------------------------------------------------------------------------------------------------------------------
+
 
 @interface LFLeiBaiPayView3 ()<UIPickerViewDelegate, UIPickerViewDataSource>
 @property (nonatomic,   weak) UIView * bgView;

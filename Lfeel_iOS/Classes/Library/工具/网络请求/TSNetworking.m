@@ -8,7 +8,6 @@
 
 #import "TSNetworking.h"
 #import "UIImage+Compress.h"
-#import "LFLoginViewController.h"
 //NSString * const kAPIBaseURL = @"http://120.76.215.11:8081/leHuiShop/";//服务器 .  测试环境
 
 //NSString * const kAPIBaseURL = @"http://192.168.0.132:8080/shopping/";//本地
@@ -243,8 +242,8 @@ static BOOL _checkLoginstatus (NSDictionary *dict) {
         [UIAlertView alertWithTitle:@"提示" message:@"登录过期，请重新登录" cancelButtonTitle:nil OtherButtonsArray:@[@"确定"] clickAtIndex:^(NSInteger buttonIndex) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                LFLoginViewController * vc = [LFLoginViewController new];
-                vc.needPopToRootVC = YES;
+                LFSecurityViewController * vc = [LFSecurityViewController new];
+//                vc.needPopToRootVC = YES;
                 BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:vc];
                 [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:b animated:YES completion:^{
                     

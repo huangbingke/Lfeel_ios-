@@ -88,7 +88,7 @@ static inline CGFloat _getScreenHeight () {
 
 #define IfUserIsNotLogin \
 if (!user_is_login) {    \
-    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFLoginViewController new]];\
+    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFSecurityViewController new]];\
     [self presentViewController:b animated:YES completion:nil]; return;\
 }
 

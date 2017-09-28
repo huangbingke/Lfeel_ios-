@@ -12,7 +12,6 @@
 #import "CardView.h"
 #import "LFGoodsDetailViewController.h"
 #import "LFVipViewController.h"
-#import "LFLoginViewController.h"
 #import "BaseNavigationController.h"
 #import "SLEmptyView.h"
 #import "LFClothesDetailViewController.h"
@@ -392,7 +391,7 @@
 
 
 -(void)isLoginVC{
-    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFLoginViewController new]];
+    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFSecurityViewController new]];
     [self presentViewController:b animated:YES completion:nil];
 }
 

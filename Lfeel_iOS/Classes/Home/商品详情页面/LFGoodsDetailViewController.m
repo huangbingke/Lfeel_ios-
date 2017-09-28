@@ -18,7 +18,6 @@
 #import "LFSeleSizeView.h"
 #import "LFSettleCenterVC.h"
 #import "LFBuyModels.h"
-#import "LFLoginViewController.h"
 #import "SLShareHelper.h"
 @interface LFGoodsDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView  * tabbleView;
@@ -595,7 +594,7 @@
 }
 
 -(void)isLoginVC{
-    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFLoginViewController new]];
+    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFSecurityViewController new]];
     [self presentViewController:b animated:YES completion:nil];
 }
 

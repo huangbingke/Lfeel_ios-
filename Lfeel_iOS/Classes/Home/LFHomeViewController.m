@@ -16,7 +16,6 @@
 #import "MJRefresh.h"
 #import "LHNewHandsViewController.h"
 #import <IQKeyboardManager.h>
-#import "LFLoginViewController.h"
 #import "LHScanViewController.h"
 @interface LFHomeViewController ()
 <UITableViewDelegate, UITableViewDataSource>

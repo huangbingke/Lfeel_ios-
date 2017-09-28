@@ -371,7 +371,7 @@
     }];
 }
 -(void)isLoginVC{
-    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFLoginViewController new]];
+    BaseNavigationController * b = [[BaseNavigationController alloc] initWithRootViewController:[LFSecurityViewController new]];
     [self presentViewController:b animated:YES completion:nil];
 }
 
