@@ -282,6 +282,7 @@
 @property (copy, nonatomic)  NSString   * goodsId;
 @property (copy, nonatomic)  NSString   * membershipName;
 @property (copy, nonatomic)  NSString   * totalPrice;
+@property (copy, nonatomic)  NSString   * membership;
 
 @end
 

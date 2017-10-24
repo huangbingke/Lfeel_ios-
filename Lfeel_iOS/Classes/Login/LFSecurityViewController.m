@@ -31,6 +31,11 @@
     self.messageView.hidden = YES;
     [self.PhoneTopConstraint setConstant:0];
     
+    //18688402893
+    self.iphoneText.text = @"13298368875";
+//    self.iphoneText.text = @"18688402893";
+    self.VifftyCodeText.text = @"1234";
+    
 }
 /// 初始化NavigaitonBar
 - (void)setupNavigationBar {
@@ -95,14 +100,13 @@
  验证码登录
  */
 - (void)requestSmsCodeLogin {
-    LFParameter *param = [LFParameter new];
-    
-    
-    param.mobilePhone = self.iphoneText.text;
-    param.smsCode = self.VifftyCodeText.text;
-    [TSNetworking POSTWithURL:@"login/verifylogin.htm?" paramsModel:param completeBlock:^(NSDictionary *request) {
+    LFParameter *paeme = [LFParameter new];
+    paeme.mobilePhone = self.iphoneText.text;
+    paeme.passWord = self.VifftyCodeText.text;
+    paeme.type = @"2";//1=密码登录；2=验证码登录
+    [TSNetworking POSTWithURL:@"login/login.htm?" paramsModel:paeme completeBlock:^(NSDictionary *request) {
         NSLog(@"%@", request);
-        if ([request[@"result"] integerValue]==200) {
+        if ([request[@"result"] integerValue] == 200) {
             [self removeUserInfo];
             //  NSLog(@"~~~~~~%@", [User getUseDefaultsOjbectForKey:KLogin_Info]);
 //            [User saveUseDefaultsOjbect:request forKey:KLogin_Info];
@@ -121,7 +125,7 @@
         }
         
     } failBlock:^(NSError *error) {
-        
+//        NSLog(@"")
     }];
     
 }

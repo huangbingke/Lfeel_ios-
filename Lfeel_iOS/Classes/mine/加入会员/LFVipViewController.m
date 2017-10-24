@@ -15,21 +15,24 @@
 
 @interface LFVipViewController()
 
-@property (weak, nonatomic) IBOutlet UIImageView *Yearimge;
+@property (weak, nonatomic) IBOutlet UIImageView *nvShenImage;
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *monthImage;
+@property (weak, nonatomic) IBOutlet UIImageView *xiannvImage;
+
+@property (weak, nonatomic) IBOutlet UIImageView *doukouImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *nvshenPrice;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *yearPrice;
+@property (weak, nonatomic) IBOutlet UILabel *xiannvPrice;
+@property (weak, nonatomic) IBOutlet UILabel *doukouPrice;
 
+@property (weak, nonatomic) IBOutlet UILabel *nvshenTimeLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *mouthPrice;
+@property (weak, nonatomic) IBOutlet UILabel *xiannvTimeLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *allYearPriceLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *allMouthPriceLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel *doukouTimeLabel;
 
 
 
@@ -50,6 +53,7 @@
     
 }
 
+//原年费
 - (IBAction)TapYearBtn:(id)sender {
     SLLog2(@"年");
     self.index = 0;
@@ -66,12 +70,18 @@
 
 -(void)TapSelectImg{
     if (self.index ==0) {
-        
-        [self.Yearimge setImage:[UIImage imageNamed:@"选择-拷贝-2"]];
-        [self.monthImage setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
-    }else{
-        [self.monthImage setImage:[UIImage imageNamed:@"选择-拷贝-2"]];
-        [self.Yearimge setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
+        [self.nvShenImage setImage:[UIImage imageNamed:@"选择-拷贝-2"]];
+        [self.xiannvImage setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
+        [self.doukouImage setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
+
+    }else if (self.index == 1){
+        [self.xiannvImage setImage:[UIImage imageNamed:@"选择-拷贝-2"]];
+        [self.doukouImage setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
+        [self.nvShenImage setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
+    } else {
+        [self.xiannvImage setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
+        [self.doukouImage setImage:[UIImage imageNamed:@"选择-拷贝-2"]];
+        [self.nvShenImage setImage:[UIImage imageNamed:@"椭圆-3-拷贝"]];
     }
 }
 - (IBAction)TapPOPViewVC:(id)sender {
@@ -79,11 +89,31 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//女神
+- (IBAction)nvshenBox:(UIButton *)sender {
+    self.index = 0;
+    [self TapSelectImg];
+    
+}
+//仙女
+- (IBAction)xianNvBox:(UIButton *)sender {
+    self.index = 1;
+    [self TapSelectImg];
+    
+}
+//豆蔻盒
+- (IBAction)doukouBox:(UIButton *)sender {
+    self.index = 2;
+    [self TapSelectImg];
+    
+}
+
+
 
 
 
 -(void)HttpRequestVip{
-    NSString *url = @"personal/membershipList.htm";
+    NSString *url = @"personal/membershipList1.htm";
     LFParameter * parme = [LFParameter new];
     
     [TSNetworking POSTWithURL:url paramsModel:parme completeBlock:^(NSDictionary *request) {
@@ -95,20 +125,20 @@
         
         self.dataArr =[NSArray yy_modelArrayWithClass:[LFVIpModel class] json:request[@"membershipBeanList"]].copy;
         for (NSDictionary *dic in request[@"membershipBeanList"]) {
-            if ([dic[@"membershipName"] isEqualToString:@"年费"]) {
-                self.yearPrice.text = [NSString stringWithFormat:@"¥%@/月", dic[@"monthPrice"]];
-                self.allYearPriceLabel.text = [NSString stringWithFormat:@"¥%ld = ¥%@/月 * 12个月", [dic[@"totalPrice"] integerValue], dic[@"monthPrice"]];
-            } else {
-                self.mouthPrice.text = [NSString stringWithFormat:@"¥%@/月", dic[@"monthPrice"]];
-                self.allMouthPriceLabel.text = [NSString stringWithFormat:@"¥%ld = ¥%@/月 * 6个月", [dic[@"totalPrice"] integerValue], dic[@"monthPrice"]];
+            if ([dic[@"membershipName"] isEqualToString:@"女神盒"]) {
+                self.nvshenPrice.text = [NSString stringWithFormat:@"¥%@", dic[@"totalPrice"]];
+                self.nvshenTimeLabel.text = [NSString stringWithFormat:@"%.2lf万分钟 + 赠送%.2lf万分钟", [dic[@"membership"] floatValue]/10000 - [dic[@"monthPrice"] floatValue]/10000, [dic[@"monthPrice"] floatValue]/10000];
+            } else if ([dic[@"membershipName"] isEqualToString:@"仙女盒"]) {
+                self.xiannvPrice.text = [NSString stringWithFormat:@"¥%@", dic[@"totalPrice"]];
+                self.xiannvTimeLabel.text = [NSString stringWithFormat:@"%.2lf万分钟 + 赠送%.2lf万分钟", [dic[@"membership"] floatValue]/10000 - [dic[@"monthPrice"] floatValue]/10000, [dic[@"monthPrice"] floatValue]/10000];
+            } else if ([dic[@"membershipName"] isEqualToString:@"豆蔻盒"]) {
+                self.doukouPrice.text = [NSString stringWithFormat:@"¥%@", dic[@"totalPrice"]];
+                self.doukouTimeLabel.text = [NSString stringWithFormat:@"%.2lf万分钟 + 赠送%.2lf万分钟", [dic[@"membership"] floatValue]/10000 - [dic[@"monthPrice"] floatValue]/10000, [dic[@"monthPrice"] floatValue]/10000];
             }
         }
-        
-        
     } failBlock:^(NSError *error) {
         
     }];
-
 }
 
 - (IBAction)TapSubmitBtn:(id)sender {
@@ -125,7 +155,7 @@
     
 }
 
-/// 下单
+// 下单
 -(void)requestOrderInfo {
     
     if (self.orderInfo) {

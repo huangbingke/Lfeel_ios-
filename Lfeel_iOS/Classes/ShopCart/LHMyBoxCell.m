@@ -35,13 +35,23 @@
 - (void)setUI {
     __weak typeof(self) weakself = self;
 
+    self.ClickBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [self.ClickBtn setImage:[UIImage imageNamed:@"椭圆-4-拷贝"] forState:(UIControlStateNormal)];
+    [self.ClickBtn addTarget:self action:@selector(ClickBtnAciton:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.contentView addSubview:self.ClickBtn];
+    [self.ClickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakself.mas_left).offset(Fit(0));
+        make.height.mas_equalTo(Fit(40));
+        make.centerY.equalTo(weakself.mas_centerY);
+        make.width.equalTo(weakself.ClickBtn.mas_height).multipliedBy(1.0f);
+    }];
+    
     self.goodsImageView = [[UIImageView alloc] init];
-//    self.goodsImageView.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.goodsImageView];
     [self.goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakself.mas_left).offset(5*kRatio);
-        make.top.equalTo(weakself.mas_top).offset(5*kRatio);
-        make.bottom.equalTo(weakself.mas_bottom).offset(-5*kRatio);
+        make.left.equalTo(weakself.ClickBtn.mas_right).offset(Fit(5));
+        make.top.equalTo(weakself.mas_top).offset(Fit(5));
+        make.bottom.equalTo(weakself.mas_bottom).offset(-Fit(5));
         make.centerY.equalTo(weakself.mas_centerY);
         make.width.equalTo(weakself.goodsImageView.mas_height).multipliedBy(1.0f);
     }];
@@ -88,11 +98,29 @@
 
 - (void)setGoods:(LFGoods *)goods {
     _goods = goods;
-    
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:goods.goodsUrl] placeholderImage:SLPlaceHolder];
     self.titleLabel.text = goods.goodsName;
+    self.ClickBtn.selected = goods.selected;
+    if (goods.selected == YES) {
+        [self.ClickBtn setImage:[UIImage imageNamed:@"椭圆-4-拷贝"] forState:(UIControlStateNormal)];
+    } else {
+        [self.ClickBtn setImage:[UIImage imageNamed:@"选择-拷贝-3"] forState:(UIControlStateNormal)];
+    }
+    
+    
 }
-
+- (void)ClickBtnAciton:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [self.ClickBtn setImage:[UIImage imageNamed:@"椭圆-4-拷贝"] forState:(UIControlStateNormal)];
+    } else {
+        [self.ClickBtn setImage:[UIImage imageNamed:@"选择-拷贝-3"] forState:(UIControlStateNormal)];
+    }
+//    BLOCK_SAFE_RUN(self.didClickStautsBtnBlock, self);
+    if (self.didClickStautsBtnBlock) {
+        self.didClickStautsBtnBlock(sender.selected);
+    }
+}
 
 
 @end

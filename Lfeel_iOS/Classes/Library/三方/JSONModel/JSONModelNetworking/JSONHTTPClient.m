@@ -383,7 +383,11 @@ static NSString* requestContentType = nil;
 +(void)setNetworkIndicatorVisible:(BOOL)isVisible
 {
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:isVisible];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:isVisible];
+    });
+
 #endif
 }
 

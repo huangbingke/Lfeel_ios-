@@ -20,6 +20,10 @@
 #import <SobotKit/SobotKit.h>
 
 #import <UserNotifications/UserNotifications.h>
+#ifndef __IPHONE_11_0
+#define __IPHONE_11_0    110000
+#endif
+
 
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 static char kScreenShotViewMove[] = "screenShotViewMove";
@@ -48,8 +52,22 @@ static char kScreenShotViewMove[] = "screenShotViewMove";
     
     [self ZCServiceApplication:application];
     
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
+    if (@available(iOS 11.0, *)) {
+        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        UITableView.appearance.estimatedRowHeight = 0;
+        UITableView.appearance.estimatedSectionFooterHeight = 0;
+        UITableView.appearance.estimatedSectionHeaderHeight = 0;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+#endif
     return YES;
 }
+    
+    
 
 
 - (void)ZCServiceApplication:(UIApplication *)application {
@@ -76,7 +94,9 @@ static char kScreenShotViewMove[] = "screenShotViewMove";
                 }
                 
             if (!error) {
-                [[UIApplication sharedApplication] registerForRemoteNotifications];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [[UIApplication sharedApplication] registerForRemoteNotifications];
+                });
             }
         }];
     }else{

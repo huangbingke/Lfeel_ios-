@@ -39,6 +39,10 @@
 @property (nonatomic, assign, getter=isRefreshing) BOOL refreshing;
 
 @property (nonatomic, assign) CGFloat boxHeigh;
+
+@property (nonatomic, assign) NSInteger index;//记录上次选中的哪一件(换衣盒)
+
+
 @end
 
 @implementation LFShopCartViewController{
@@ -75,7 +79,7 @@
     [self setupNavigationBar];
     
     self.isFirst = YES;
-    
+    self.index = -1;
 }
 
 
@@ -515,11 +519,23 @@
         if (cell == nil) {
             cell = [[LHMyBoxCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"LHMyBoxCell"];
         }
-        
-        cell.goods = self.datas[indexPath.row];
         cell.delegate = self;
+        cell.goods = self.datas[indexPath.row];
+        cell.didClickStautsBtnBlock = ^(BOOL isClick) {
+            if (self.index != -1) {
+                LFGoods *goods = self.datas[self.index];
+                goods.selected = YES;
+            }
+            LFGoods *goodModel = self.datas[indexPath.row];
+            if (isClick == NO) {
+                goodModel.selected = NO;
+            } else {
+                goodModel.selected = YES;
+            }
+            self.index = indexPath.row;
+            [self.myBoxTableView reloadData];
+        };
         return cell;
-    
     }
 }
 
@@ -544,7 +560,6 @@
             }
             [self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:[self.shopCartsData indexOfObject:h.cart]] withRowAnimation:UITableViewRowAnimationNone];
             [self _checkStatus];
-            
         }];
         [header addGestureRecognizer:tap];
         return header;

@@ -12,10 +12,18 @@
 @class LFGoods;
 
 @interface LHMyBoxCell : MGSwipeTableCell
+
+
+@property (strong, nonatomic) UIButton *ClickBtn;
+
 @property (strong, nonatomic) UIImageView *goodsImageView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *brandLabel;
 @property (strong, nonatomic) UILabel *sizeLabel;
 @property (nonatomic, strong) LFGoods * goods;
+
+@property (nonatomic,   copy) void (^didClickStautsBtnBlock)(BOOL isClick);
+
+
 
 @end
