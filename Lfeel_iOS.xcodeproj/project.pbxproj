@@ -30,6 +30,9 @@
 		0F33553B1F0DD3A30056FEA9 /* LFDetailRMBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3355391F0DD3A30056FEA9 /* LFDetailRMBCell.xib */; };
 		0F33553E1F0E1A610056FEA9 /* LHMyBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33553D1F0E1A610056FEA9 /* LHMyBoxCell.m */; };
 		0F3355411F0E1AC90056FEA9 /* LHPackingBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3355401F0E1AC90056FEA9 /* LHPackingBoxView.m */; };
+		0F4EBC771F9F12A0009E9D17 /* LHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EBC761F9F129F009E9D17 /* LHPickView.m */; };
+		0F4EBC7B1FA05C04009E9D17 /* LFPackInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EBC791FA05C04009E9D17 /* LFPackInfoViewController.m */; };
+		0F4EBC7C1FA05C04009E9D17 /* LFPackInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F4EBC7A1FA05C04009E9D17 /* LFPackInfoViewController.xib */; };
 		0F594C8B1F2586780047DCC1 /* LFCardBagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F594C891F2586780047DCC1 /* LFCardBagViewController.m */; };
 		0F594C8C1F2586780047DCC1 /* LFCardBagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F594C8A1F2586780047DCC1 /* LFCardBagViewController.xib */; };
 		0F594C931F258DBB0047DCC1 /* LFCardBagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F594C911F258DBB0047DCC1 /* LFCardBagCell.m */; };
@@ -665,6 +668,11 @@
 		0F33553D1F0E1A610056FEA9 /* LHMyBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHMyBoxCell.m; sourceTree = "<group>"; };
 		0F33553F1F0E1AC90056FEA9 /* LHPackingBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHPackingBoxView.h; sourceTree = "<group>"; };
 		0F3355401F0E1AC90056FEA9 /* LHPackingBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHPackingBoxView.m; sourceTree = "<group>"; };
+		0F4EBC751F9F129E009E9D17 /* LHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHPickView.h; sourceTree = "<group>"; };
+		0F4EBC761F9F129F009E9D17 /* LHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHPickView.m; sourceTree = "<group>"; };
+		0F4EBC781FA05C04009E9D17 /* LFPackInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFPackInfoViewController.h; sourceTree = "<group>"; };
+		0F4EBC791FA05C04009E9D17 /* LFPackInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFPackInfoViewController.m; sourceTree = "<group>"; };
+		0F4EBC7A1FA05C04009E9D17 /* LFPackInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LFPackInfoViewController.xib; sourceTree = "<group>"; };
 		0F594C881F2586780047DCC1 /* LFCardBagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCardBagViewController.h; sourceTree = "<group>"; };
 		0F594C891F2586780047DCC1 /* LFCardBagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCardBagViewController.m; sourceTree = "<group>"; };
 		0F594C8A1F2586780047DCC1 /* LFCardBagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFCardBagViewController.xib; sourceTree = "<group>"; };
@@ -1029,7 +1037,7 @@
 		189BEB5B1E5D32E400A5CA5C /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		189BEB5C1E5D32E400A5CA5C /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		189BEB5D1E5D32E400A5CA5C /* TSNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNetworking.h; sourceTree = "<group>"; };
-		189BEB5E1E5D32E400A5CA5C /* TSNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNetworking.m; sourceTree = "<group>"; };
+		189BEB5E1E5D32E400A5CA5C /* TSNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNetworking.m; sourceTree = "<group>"; usesTabs = 0; };
 		189BEB601E5D32E400A5CA5C /* TSNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNavigationBar.h; sourceTree = "<group>"; };
 		189BEB611E5D32E400A5CA5C /* TSNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNavigationBar.m; sourceTree = "<group>"; };
 		189BEB631E5D32E400A5CA5C /* SLInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInputAccessoryView.h; sourceTree = "<group>"; };
@@ -2714,9 +2722,14 @@
 				0F90450E1F161F43000528A2 /* LFPackViewController.h */,
 				0F90450F1F161F43000528A2 /* LFPackViewController.m */,
 				0F9045101F161F43000528A2 /* LFPackViewController.xib */,
+				0F4EBC781FA05C04009E9D17 /* LFPackInfoViewController.h */,
+				0F4EBC791FA05C04009E9D17 /* LFPackInfoViewController.m */,
+				0F4EBC7A1FA05C04009E9D17 /* LFPackInfoViewController.xib */,
 				0F9045131F16215B000528A2 /* LFPackCell.h */,
 				0F9045141F16215B000528A2 /* LFPackCell.m */,
 				0F9045151F16215B000528A2 /* LFPackCell.xib */,
+				0F4EBC751F9F129E009E9D17 /* LHPickView.h */,
+				0F4EBC761F9F129F009E9D17 /* LHPickView.m */,
 				0FEF61741F0F6F9200AF75F0 /* LFPackSuccessViewController.h */,
 				0FEF61751F0F6F9200AF75F0 /* LFPackSuccessViewController.m */,
 				0FEF61761F0F6F9200AF75F0 /* LFPackSuccessViewController.xib */,
@@ -4212,6 +4225,7 @@
 				88B72F9C1E6540DE00DBE93D /* LFRentalView.xib in Resources */,
 				88B72FD21E659FAC00DBE93D /* LFMineAddressCell.xib in Resources */,
 				14959F041E9A384C00DB6167 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				0F4EBC7C1FA05C04009E9D17 /* LFPackInfoViewController.xib in Resources */,
 				88B72FE11E65A89200DBE93D /* LFNewAddRessHeaderView.xib in Resources */,
 				88F737851E6449FF00E3B979 /* LFIntergerDetailCell.xib in Resources */,
 				189BEEFF1E5D32E500A5CA5C /* placeholderImage.jpg in Resources */,
@@ -4349,6 +4363,7 @@
 				189BEEEE1E5D32E500A5CA5C /* TSGlobalTool.m in Sources */,
 				145AFC891EB781D20039EF86 /* LFLeiBaiPayVC3.m in Sources */,
 				189BEF731E5D32E500A5CA5C /* MASViewAttribute.m in Sources */,
+				0F4EBC7B1FA05C04009E9D17 /* LFPackInfoViewController.m in Sources */,
 				189BEF871E5D32E500A5CA5C /* UIImage+MWPhotoBrowser.m in Sources */,
 				189BEFE51E5D32E500A5CA5C /* UISegmentedControl+RACSignalSupport.m in Sources */,
 				8860DA0F1E5EB7C700E1F72A /* LFForgetViewController.m in Sources */,
@@ -4697,6 +4712,7 @@
 				189BEFCA1E5D32E500A5CA5C /* RACSignal.m in Sources */,
 				F17B508B1E76FA470034B39B /* LfSettingViewController.m in Sources */,
 				883E54AD1E6D3EF400C15E16 /* LFGoodDetailCell.m in Sources */,
+				0F4EBC771F9F12A0009E9D17 /* LHPickView.m in Sources */,
 				189BF06C1E5D32E500A5CA5C /* SLNavigationButton.m in Sources */,
 				88B72F8A1E65325100DBE93D /* LFUsedViewHeaderView.m in Sources */,
 				145AFC831EB74E0A0039EF86 /* LFLeiBaiPayVC2.m in Sources */,
@@ -4889,6 +4905,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d72a3182-23b2-4a32-8fed-d183598e883c";
 				PROVISIONING_PROFILE_SPECIFIER = LFEELPodfile;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Lfeel_iOS/Classes/Library/工具/PayTool/支付宝";
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",
@@ -4943,6 +4960,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d72a3182-23b2-4a32-8fed-d183598e883c";
 				PROVISIONING_PROFILE_SPECIFIER = LFEELPodfile;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Lfeel_iOS/Classes/Library/工具/PayTool/支付宝";
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",

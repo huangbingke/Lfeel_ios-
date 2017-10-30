@@ -131,6 +131,10 @@
     [UIAlertView alertWithTitle:@"提示" message:@"确认退出登录" cancelButtonTitle:@"取消" OtherButtonsArray:@[@"确定"] clickAtIndex:^(NSInteger buttonIndex) {
         if (buttonIndex == 1) {
             [self removeUserInfo];
+            [User removeUseDefaultsForKey:kSMRZ];
+            [User removeUseDefaultsForKey:kVipStatus];
+            [User removeUseDefaultsForKey:kParent_id];
+
             // 移除三方授权
             [[UMSocialManager defaultManager] cancelAuthWithPlatform:UMSocialPlatformType_QQ completion:nil];
             [[UMSocialManager defaultManager] cancelAuthWithPlatform:UMSocialPlatformType_WechatSession completion:nil];

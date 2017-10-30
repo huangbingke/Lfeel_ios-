@@ -23,6 +23,9 @@
     [self setupNavigationBar];
     [self CreateView];
 
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapView)];
+    [self.view addGestureRecognizer:tap];
+    
 }
 
 /// 初始化NavigaitonBar
@@ -58,6 +61,7 @@
             LFCity * c = dict[@"city"];
             LFRegion * d = dict[@"district"];
             NSString * t = [NSString stringWithFormat:@"%@%@%@", p.provinceName, c.cityName, d.regionName];
+            NSLog(@"%@", t);
             self.headerView.address = t;
         };
         [self.view addSubview:pickerView];
@@ -111,6 +115,12 @@
 }
 
 
+- (void)TapView {
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+
+}
+
+
 -(void)TapSaveAddressBtn {
     
     SLAssert(self.headerView.name.hasText, @"请填写收货人姓名");
@@ -132,8 +142,9 @@
     LFParameter * parameter = [LFParameter new];
     parameter.areaInfo = self.headerView.detail.text;
 //    parameter.areaInfo = [NSString stringWithFormat:@"%@%@", self.headerView.address, self.headerView.detail.text];
-    LFCity * c = self.addressDict[@"city"];
-    parameter.cityId = c.cityId ? : self.address.cityId;
+    LFRegion * c = self.addressDict[@"district"];
+    parameter.cityId = c.regionId ? : self.address.cityId;
+    
     parameter.telephone = self.headerView.phone.text;
     parameter.trueName = self.headerView.name.text;;
     parameter.addressId = self.address ? self.address.addressId : nil;

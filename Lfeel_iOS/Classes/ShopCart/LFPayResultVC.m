@@ -109,7 +109,7 @@
             
             
         } else {
-//            SVShowError(request[@"msg"]);
+            SVShowError(request[@"msg"]);
         }
     } failBlock:^(NSError *error) {
         SLLog(error);

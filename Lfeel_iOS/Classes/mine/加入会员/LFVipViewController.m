@@ -49,8 +49,12 @@
     [super viewDidLoad];
     self.index = 0;
     self.payType = -1; // 默认支付方式为空
-    [self HttpRequestVip];
     
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self HttpRequestVip];
 }
 
 //原年费
@@ -157,14 +161,13 @@
 
 // 下单
 -(void)requestOrderInfo {
-    
-    if (self.orderInfo) {
-        [self _startPay];
-        return;
-    }
+//    if (self.orderInfo) {
+//        [self _startPay];
+//        return;
+//    }
+    NSLog(@"%ld", self.index);
     
     if (self.dataArr.count > 0) {
-        
       LFVIpModel * model = self.dataArr[self.index];
         
         NSString * url =@"personal/immediately.htm?";

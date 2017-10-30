@@ -8,12 +8,12 @@
 
 #import "TSNetworking.h"
 #import "UIImage+Compress.h"
-//NSString * const kAPIBaseURL = @"http://120.76.215.11:8081/leHuiShop/";//服务器 .  测试环境
 
-NSString * const kAPIBaseURL = @"http://192.168.0.116:8080/shopping/";//本地
+//NSString * const kAPIBaseURL = @"http://192.168.0.116:8080/shopping/";//本地
 
-//NSString * const kAPIBaseURL = @"http://120.76.215.11:8021/leHuiShop/";//服务器,   上线环境. 自动分发
+NSString * const kAPIBaseURL = @"http://120.76.215.11:8021/leHuiShop/";//服务器,
 
+//NSString * const kAPIBaseURL = @"http://120.76.215.11/leHuiShop/";//测试环境
 
 
 @implementation SLBaseModel

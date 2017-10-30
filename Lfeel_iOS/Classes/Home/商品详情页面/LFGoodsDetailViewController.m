@@ -134,7 +134,7 @@
 
 -(void)CreateView{
     
-    UITableView *tabbleView = [[UITableView alloc]initWithFrame:CGRectMake(0,64, kScreenWidth, kScreenHeight-0) style:UITableViewStyleGrouped];
+    UITableView *tabbleView = [[UITableView alloc]initWithFrame:CGRectMake(0,64, kScreenWidth, kScreenHeight-64) style:UITableViewStyleGrouped];
     tabbleView.delegate =self;
     tabbleView.dataSource = self;
     self.tabbleView = tabbleView;
@@ -146,7 +146,7 @@
     
     SLLog2(@"33333");
     if(headerView!= nil)return headerView;
-    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(709))];
+    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.3+Fit375(295))];
     
 //    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(414))];
     UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.3)];
@@ -160,7 +160,6 @@
     ShareView.backgroundColor = [UIColor clearColor];
     [headerView addSubview:ShareView];
     
-    
     CGFloat btnW = Fit375(38);
     CGFloat btnH = Fit375(38);
     
@@ -173,8 +172,8 @@
     [CollotBtn addTarget:self action:@selector(TapSelectCollotBtn)];
     [ShareView addSubview:CollotBtn];
     
-       self.selectHeaderView = [LFSelectHeaderView creatViewFromNib];
-    self.selectHeaderView.frame = Rect(0, CGRectGetMaxY(banner.frame), kScreenWidth, Fit375(295));
+    self.selectHeaderView = [LFSelectHeaderView creatViewFromNib];
+    self.selectHeaderView.frame = Rect(0, CGRectGetMaxY(self.goodBanner.frame), kScreenWidth, Fit375(295));
     
     [headerView addSubview:self.selectHeaderView];
     [headerView setHeight:CGRectGetMaxY(self.selectHeaderView.frame)];
@@ -499,7 +498,7 @@
     LFGoodDetailCell * cell = [LFGoodDetailCell cellWithTableView:tableView];
     
     cell.detailTextView.attributedText = [self setHtmlStr:self.htmlString];
-    
+    [cell adjustCellWithString:self.htmlString];
     return cell;
     
 }
@@ -518,14 +517,14 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return  Fit375(709);
+    return  kScreenWidth*1.3+Fit375(295);
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return [self CreateGoodsHeaderView];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return Fit(350);
+    return [LFGoodDetailCell cellHeightWithString:self.htmlString];
 }
 
 //

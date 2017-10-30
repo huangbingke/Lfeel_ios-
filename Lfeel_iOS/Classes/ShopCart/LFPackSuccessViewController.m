@@ -20,10 +20,10 @@
 }
 - (IBAction)continue:(UIButton *)sender {
     self.tabBarController.selectedIndex = 0;
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)back:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 

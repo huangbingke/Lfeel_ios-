@@ -32,9 +32,10 @@
     [self.PhoneTopConstraint setConstant:0];
     
     //18688402893
-    self.iphoneText.text = @"13298368875";
+//    self.iphoneText.text = @"13298368875";
 //    self.iphoneText.text = @"18688402893";
-    self.VifftyCodeText.text = @"1234";
+//    self.iphoneText.text = @"15627284287";
+//    self.VifftyCodeText.text = @"1234";
     
 }
 /// 初始化NavigaitonBar

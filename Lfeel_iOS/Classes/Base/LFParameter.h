@@ -124,8 +124,11 @@
 @property (nonatomic,   assign) NSInteger  start;
 @property (nonatomic,   assign) NSInteger  end;
 
+//@property (nonatomic,   copy) NSString  *start;
+//@property (nonatomic,   copy) NSString  *end;
 
-//@property (nonatomic,   copy) NSString * bankId;
+
+@property (nonatomic,   copy) NSString * keyword;
 @property (nonatomic,   copy) NSString * remark;
 
 @property (nonatomic,   copy) NSString * express_no;
@@ -136,7 +139,9 @@
 
 @property (nonatomic,   copy) NSString * application_id;
 
-//@property (nonatomic,   copy) NSString * id;
+@property (nonatomic,   copy) NSString * defaultStatus;
+
+
 
 /// 拼接基础参数
 - (void)appendBaseParam;

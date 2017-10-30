@@ -163,6 +163,11 @@
         [self.navigationController pushViewController:controller animated:YES];
     };
     
+    self.headerView.didRechargeBtn = ^{
+        @strongify(self);
+        [self TapAddvip];
+    };
+    
     [_header addSubview:self.headerView];
     return _header;
 }
@@ -199,7 +204,7 @@
         if (!cancel) {
             @strongify(self);
             UMSocialPlatformType types[] = {UMSocialPlatformType_WechatSession, UMSocialPlatformType_WechatTimeLine, UMSocialPlatformType_QQ, UMSocialPlatformType_Sina};
-            [SLShareHelper shareTitle:@"乐荟盒子 | 500元现金券不拿白不拿" desc:@"晚了就没有啦!!!" url:[NSString stringWithFormat:@"http://120.76.215.11:8021/leHuiShop/htdocs/index.html?agent_user_id=%@", self.parent_id] image:[UIImage imageNamed:@"APPPhoto"] Plantform:types[index] callBack:^(BOOL success) {
+            [SLShareHelper shareTitle:@"乐荟盒子 | 送你一百分钟时间" desc:@"让时光倒流到最美一刻" url:[NSString stringWithFormat:@"http://120.76.215.11:8021/leHuiShop/htdocs/index.html?agent_user_id=%@", self.parent_id] image:[UIImage imageNamed:@"APPPhoto"] Plantform:types[index] callBack:^(BOOL success) {
                 NSString * txt = (success ? @"分享成功" : @"分享失败");
                 SVShowSuccess(txt);
             }];
@@ -309,6 +314,8 @@
             SVShowError(request[@"msg"]);return ;
         }
 //        _first = NO;
+        [User removeUseDefaultsForKey:@"isReal"];
+        [User saveUseDefaultsOjbect:request[@"isReal"] forKey:@"isReal"];
         [User saveCenterUserInfomation:request];
         [self.headerView setdata:request];
     } failBlock:^(NSError *error) {

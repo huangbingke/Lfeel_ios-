@@ -46,10 +46,11 @@
     parameters[@"total_fee"] = [NSNumber numberWithInteger:[self.totalFee integerValue]];
     parameters[@"bill_no"] = self.billNo;
     parameters[@"title"] = self.title;
-    
+//    NSLog(@"%@----%@-----%@-----%@", cType, [NSNumber numberWithInteger:[self.totalFee integerValue]], self.billNo, self.title);
     if (self.notify_url) {
         parameters[@"notify_url"] = self.notify_url;
     }
+//    parameters[@"notify_url"] = @"http://1542e87s78.51mypc.cn:34249/shopping/pay/payCallback.htm";
     
     if (self.billTimeOut > 0) {
         parameters[@"bill_timeout"] = @(self.billTimeOut);
@@ -66,20 +67,20 @@
     BCHTTPSessionManager *manager = [BCPayUtil getBCHTTPSessionManager];
     __weak BCPayReq *weakSelf = self;
     
-    [manager POST:[BCPayUtil getBestHostWithFormat:kRestApiPay] parameters:parameters progress:nil
-          success:^(NSURLSessionTask *task, id response) {
-              if ([response integerValueForKey:kKeyResponseResultCode defaultValue:BCErrCodeCommon] != 0) {
-                  [BCPayUtil getErrorInResponse:(NSDictionary *)response];
-              } else {
-                  if ([BCPayCache sharedInstance].sandbox) {
-                      [weakSelf doPayActionInSandbox:(NSDictionary *)response];
-                  } else {
-                      [weakSelf doPayAction:(NSDictionary *)response];
-                  }
-              }
-          } failure:^(NSURLSessionTask *operation, NSError *error) {
-              [BCPayUtil doErrorResponse:kNetWorkError];
-          }];
+    [manager POST:[BCPayUtil getBestHostWithFormat:kRestApiPay] parameters:parameters progress:nil success:^(NSURLSessionTask *task, id response) {
+        if ([response integerValueForKey:kKeyResponseResultCode defaultValue:BCErrCodeCommon] != 0) {
+            [BCPayUtil getErrorInResponse:(NSDictionary *)response];
+        } else {
+            if ([BCPayCache sharedInstance].sandbox) {
+                [weakSelf doPayActionInSandbox:(NSDictionary *)response];
+            } else {
+                [weakSelf doPayAction:(NSDictionary *)response];
+            }
+        }
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"%@---------%@", error, operation);
+        [BCPayUtil doErrorResponse:kNetWorkError];
+    }];
 }
 
 #pragma mark - Pay Action

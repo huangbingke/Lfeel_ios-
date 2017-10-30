@@ -30,21 +30,21 @@
 - (NSMutableArray *)questionArray {
     if (!_questionArray) {
         self.questionArray = [NSMutableArray arrayWithObjects:
-                              @"1. 什么是乐荟包年（半年）会员服务",
-                              @"2. 我收到的服饰是全新的吗?",
-                              @"3. 乐荟的服饰是否是正品?",
-                              @"4. 乐荟的服饰是如何清洗的?",
-                              @"5. 哪些城市可以使用乐荟的服务?",
-                              @"6. 如何更换使用乐荟盒子?",
-                              @"7. 往返的邮费是到付吗?",
-                              @"8. 我下单后，多久可以收到衣服?",
-                              @"9. 我手上可以同时持有几个乐荟盒子?",
-                              @"10. 下单后能更改我的订单吗?",
-                              @"11. 如果衣服损坏或丢失，我该怎么做?",
-                              @"12. 会员期如何计算?",
-                              @"13. 会员到期后，何时归还时装箱?",
-                              @"14. 不需要下单时，我该如何归还手上的衣箱?",
-                              @"15. 我把私人物品随时装箱寄回了，我该怎么办?", nil];
+//                              @"1. 什么是乐荟包年（半年）会员服务",
+                              @"Q. 我收到的服饰是全新的吗?",
+                              @"Q. 乐荟的服饰是否是正品?",
+                              @"Q. 乐荟的服饰是如何清洗的?",
+                              @"Q. 哪些城市可以使用乐荟的服务?",
+                              @"Q. 如何更换使用乐荟盒子?",
+                              @"Q. 往返的邮费是到付吗?",
+                              @"Q. 我下单后，多久可以收到衣服?",
+                              @"Q. 我手上可以同时持有几个乐荟盒子?",
+                              @"Q. 下单后能更改我的订单吗?",
+                              @"Q. 如果衣服损坏或丢失，我该怎么做?",
+                              @"Q. 会员期如何计算?",
+                              @"Q. 会员到期后，何时归还时装箱?",
+                              @"Q. 不需要下单时，我该如何归还手上的衣箱?",
+                              @"Q. 我把私人物品随时装箱寄回了，我该怎么办?", nil];
     }
     return _questionArray;
 }
@@ -52,9 +52,9 @@
 - (NSMutableArray *)contentArray {
     if (!_contentArray) {
         self.contentArray = [NSMutableArray arrayWithObjects:
-                             @"    在乐荟APP支付年费成为包年（半年）会员，可以在会员期内更换乐荟全部服饰，每次选择3件，不限更换次数、不限持有时间，直到会员期结束。",
+//                             @"    在乐荟APP支付年费成为包年（半年）会员，可以在会员期内更换乐荟全部服饰，每次选择3件，不限更换次数、不限持有时间，直到会员期结束。",
                              @"    乐荟会不定时上新，这部分时装是全新的，所以服饰供会员共享使用。乐荟对所有服饰质量严格把控，保持类全新状态，任何损坏、磨损、污损、起毛的服饰即刻下架。",
-                             @"    乐荟所有服饰均为平台买手通过正规渠道当季订货、采购或与品牌直接合作。无个人闲置服饰、山寨品牌服饰。",
+                             @"    乐荟所有服饰通过正规渠道当季订货、采购或与品牌直接合作。无山寨品牌服饰。",
                              @"    乐荟为全部进、出库服饰、礼服及配饰等提供五星级的专业清洗与保养服务，采用第五代专业设备，经过12道工序，能够做到细菌和衣物的彻底分离。除部分不能干洗的面料外，绝大多数衣物采用干洗，完全符合国际最新干洗ISO8230标准。第五代设备实现清洗、消毒、烘干、过滤全封闭一体式操作，避免空间操作中的二次污染。服饰在清洗到再次寄出的过程中，会有四道质检，确保衣物状态如新。",
                              @"    乐荟目前的配送范围已覆盖国际范围，即使身在国外也可享受到乐荟的服务。",
                              @"    距离上一次下单48小时后，，你即可在乐荟上提交新的订单。用户把需更换的衣物装进乐荟盒子，以到付的方式，原路返回，仓库收到盒子，确认衣物无明显损耗后，以到付的方式寄出相应数量的衣物给客户。",
@@ -77,8 +77,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 
-    NSArray * titles = @[@"新手指南", @"清洗报告", @"会员特权"];
-    NSArray * sels = @[@"setUIWithNewHands", @"setUIWithClean", @"setUIWithNewHandsUnderstand"];
+    NSArray * titles = @[@"新手指南", @"清洗报告", @"会员特权", @"活动"];
+    NSArray * sels = @[@"setUIWithNewHands", @"setUIWithClean", @"setUIWithNewHandsUnderstand", @"setActivity"];
     @weakify(self);
     NSString * title = titles[_index];
     self.ts_navgationBar = [TSNavigationBar navWithTitle:title backAction:^{
@@ -124,8 +124,11 @@
     [self.view addSubview:scrollView];
 }
 
-
-
+//活动
+- (void)setActivity {
+    LHScrollView *scrollView = [[LHScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight- 64) imageRadio:3 imageName:@"Activity"];
+    [self.view addSubview:scrollView];
+}
 
 
 

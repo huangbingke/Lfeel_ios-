@@ -15,6 +15,8 @@
 @property (nonatomic,   copy)void (^didSelectAddVip) ();
 
 @property (nonatomic,   copy)void (^didSettingBtn) ();
+@property (nonatomic,   copy)void (^didRechargeBtn) ();
+
 @property (nonatomic,   copy)void (^didCenterBtn) ();
 @property (nonatomic, copy) void (^didInvoteBtn) ();
 @property (nonatomic, copy) void (^didCodeBtn) ();
@@ -22,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *QRCodeBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *addVipBtn;
+//显示时间
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+//充值
+@property (weak, nonatomic) IBOutlet UIButton *rechargeBtn;
 
 -(void)setdata:(NSDictionary *)dict;
 

@@ -34,6 +34,12 @@
     }
 }
 
+//充值
+- (IBAction)Recharge:(UIButton *)sender {
+    if (self.didRechargeBtn) {
+        self.didRechargeBtn();
+    }
+}
 
 - (IBAction)TapSelectAddVipBtn:(id)sender {
     if (self.didSelectAddVip) {
@@ -93,6 +99,7 @@
     if (!name.length) {
         name = [dict[@"phoneMoble"] stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
     }
+    self.timeLabel.text = [NSString stringWithFormat:@"剩余时间: %@分钟", dict[@"minutes"]];
     self.namelabel.text = name;
     NSString * userIoc = [NSString stringWithFormat:@"%@",dict[@"userIoc"]];
     if (userIoc.length == 0) {

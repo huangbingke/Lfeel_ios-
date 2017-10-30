@@ -80,6 +80,7 @@
     
     self.sizeLabel = [[UILabel alloc] init];
     self.sizeLabel.font = kFont(14*kRatio);
+    self.sizeLabel.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:self.sizeLabel];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20*kRatio);
@@ -105,6 +106,11 @@
         [self.ClickBtn setImage:[UIImage imageNamed:@"椭圆-4-拷贝"] forState:(UIControlStateNormal)];
     } else {
         [self.ClickBtn setImage:[UIImage imageNamed:@"选择-拷贝-3"] forState:(UIControlStateNormal)];
+    }
+    if (![goods.attribute isEqualToString:@"true"]) {
+        self.sizeLabel.text = @"待返架";
+    } else {
+        self.sizeLabel.text = @"";
     }
     
     

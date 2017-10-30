@@ -20,7 +20,7 @@
 #import "LFVipViewController.h"
 #import "LFCertificationViewController.h"
 ///order/application.htm?user_id=&type=&remark=&bank_no=&price=
-
+#import "LFPackInfoViewController.h"
 
 
 @interface LFShopCartViewController ()
@@ -61,12 +61,15 @@
     [self HTTPRequset];
     
 
-    if ([[User getUseDefaultsOjbectForKey:kVipStatus] integerValue] == 1) {
-        if ([[User getUseDefaultsOjbectForKey:kSMRZ] integerValue] != 1) {
+//    if ([[User getUseDefaultsOjbectForKey:kVipStatus] integerValue] == 1) {
+//        if ([[User getUseDefaultsOjbectForKey:kSMRZ] integerValue] != 1) {
             [self requestIsVipData];
-        }
-    }
-
+//        }
+        NSLog(@"实名认证 ------ %@", [User getUseDefaultsOjbectForKey:kSMRZ]);
+//    }
+    
+    self.index = -1;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -306,7 +309,7 @@
     [self.myBoxTableView.mj_footer resetNoMoreData];
     [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
         @strongify(self);
-//        SLLog(request);
+        SLLog(request);
         SLEndRefreshing(self.myBoxTableView);
         if ([request[@"result"] integerValue]!= 200) {
             SVShowError(request[@"msg"]);
@@ -375,7 +378,6 @@
         SLShowNetworkFail;
         SLLog(error);
     }];
-    
 }
 
 /*盒子状态*/
@@ -393,16 +395,20 @@
         if (self.isSubPage) f = 0;
         if ([request[@"result"] integerValue] == 401) {
             [[NSUserDefaults standardUserDefaults] setObject:request[@"application_id"] forKey:@"application_id"];
-            LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"   将乐荟盒子中要换的商品寄回" packingButtonTitle:@"寄回盒子"];
-            [packView clickPackingButtonBlock:^(NSString *packBtnTitle) {
-                LFPackViewController *packVC = [[LFPackViewController alloc] init];
-                packVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:packVC animated:YES];
-            }];
+            LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"" packingButtonTitle:@"进行中"];
+//            [packView clickPackingButtonBlock:^(NSString *packBtnTitle) {
+//                LFPackViewController *packVC = [[LFPackViewController alloc] init];
+//                packVC.hidesBottomBarWhenPushed = YES;
+//                [self.navigationController pushViewController:packVC animated:YES];
+                
+//            }];
             [self.boxScrollView addSubview:packView];
+            
+            
         } else if ([request[@"result"] integerValue] == 200){
-            LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"时尚搭配师精心挑选三件发给您" packingButtonTitle:@"打包盒子"];
+            LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"精心挑选一件发给您" packingButtonTitle:@"打包盒子"];
             [packView clickPackingButtonBlock:^(NSString *packBtnTitle) {
+                ///先判断是不是会员, 然后判断有没有实名认证
                 if ([[User getUseDefaultsOjbectForKey:kVipStatus] integerValue] != 1) {
                     
                     LFVipViewController *vipVC = [[LFVipViewController alloc] init];
@@ -410,48 +416,41 @@
                     [self.navigationController pushViewController:vipVC animated:YES];
                     
                 } else {
-                    if ([[User getUseDefaultsOjbectForKey:kSMRZ] integerValue] != 1) {
+                    if ([[User getUseDefaultsOjbectForKey:kSMRZ] integerValue] == 0) {
                         LFCertificationViewController *cvc = [[LFCertificationViewController alloc] init];
                         [self.navigationController pushViewController:cvc animated:YES];
                     } else {
+                        if (self.index == -1) {
+                            SVShowError(@"您还没有选择商品哦~");
+                        } else {
+                            LFGoods *goodsModel = self.datas[self.index];
+                            if ([goodsModel.attribute isEqualToString:@"true"]) {
+                                LFPackInfoViewController *packVC = [[LFPackInfoViewController alloc] init];
+                                packVC.goodsModel = self.datas[self.index];
+                                [self.navigationController pushViewController:packVC animated:YES];
+                            } else {
+                                SVShowError(@"待返架");
+                            }
+                        }
                         
-                        [self requestPackBoxData];
                     }
                 }
                 
+            }];
+            [self.boxScrollView addSubview:packView];
+        } else if ([request[@"result"] integerValue] == 402){
+            [[NSUserDefaults standardUserDefaults] setObject:request[@"application_id"] forKey:@"application_id"];
+            LHPackingBoxView *packView = [[LHPackingBoxView alloc] initWithFrame:CGRectMake(0, kScreenHeight-64-f-self.boxHeigh, kScreenWidth, self.boxHeigh) packingStatusString:@"   将乐荟盒子中要换的商品寄回" packingButtonTitle:@"寄回盒子"];
+            [packView clickPackingButtonBlock:^(NSString *packBtnTitle) {
+                LFPackViewController *packVC = [[LFPackViewController alloc] init];
+                packVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:packVC animated:YES];
             }];
             [self.boxScrollView addSubview:packView];
         }
     } failBlock:^(NSError *error) {
         SLLog(error);
     }];
-}
-
-- (void)requestPackBoxData {
-    //普通订单, 租赁订单, 
-    NSDictionary *dic = [User getUseDefaultsOjbectForKey:KLogin_Info];
-    NSString * url =@"order/application.htm?";
-    LFParameter *paeme = [LFParameter new];
-    paeme.user_id = dic[@"user_id"];
-    paeme.type = @"2";
-    paeme.price = @"";
-    paeme.remark = @"打包";
-    [TSNetworking POSTWithURL:url paramsModel:paeme needProgressHUD:YES completeBlock:^(NSDictionary *request) {
-        SLLog(request);
-        if ([request[@"result"] integerValue] == 200) {
-            LFPackSuccessViewController *packVC = [[LFPackSuccessViewController alloc] init];
-            packVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:packVC animated:YES];
-        } else {
-            SVShowError(request[@"msg"]);
-            
-        }
-        
-    } failBlock:^(NSError *error) {
-        SLLog(error);
-    }];
-    
-    
 }
 
 

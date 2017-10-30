@@ -43,6 +43,9 @@ static void(^_completion)(BOOL success, NSString *msg);
     payReq.viewController = vc; //银联支付和Sandbox环境必填
     payReq.cardType = 0; //0 表示不区分卡类型；1 表示只支持借记卡；2 表示支持信用卡；默认为0
     payReq.optional = dict;//商户业务扩展参数，会在webhook回调时返回
+    
+//    NSLog(@"%ld-----%@-----%@------%@-------%@-------%ld", payReq.channel, payReq.optional, payReq.totalFee, payReq.billNo, payReq.viewController, type);
+    
     [BeeCloud sendBCReq:payReq];
 
 }

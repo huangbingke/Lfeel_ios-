@@ -75,10 +75,10 @@
     SLLog2(@"33333");
     if(headerView!= nil)return headerView;
 //    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(709))];
-    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.6)];
+    headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.3)];
 
 //    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Fit375(414))];
-    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.5)];
+    UIView * banner = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*1.3)];
     banner.backgroundColor = HexColorInt32_t(111111);
     [headerView addSubview:banner];
     self.goodBanner  = [[GoodSBannarView alloc]initWithFrame:banner.frame];
@@ -102,9 +102,8 @@
     [ShareView addSubview:serBtn];
     
     self.selectHeaderView = [LFClothesHeaderView creatViewFromNib];
-    self.selectHeaderView.frame = Rect(0, CGRectGetMaxY(banner.frame), kScreenWidth, Fit375(295));
-    
-    [headerView addSubview:self.selectHeaderView];
+    self.selectHeaderView.frame = Rect(0, CGRectGetMaxY(self.goodBanner.frame), kScreenWidth, 160);
+    [banner addSubview:self.selectHeaderView];
     [headerView setHeight:CGRectGetMaxY(self.selectHeaderView.frame)];
     @weakify(self);
     self.selectHeaderView.didSelectShopCarBtn =^{
@@ -273,6 +272,10 @@
     LFGoodDetailCell * cell = [LFGoodDetailCell cellWithTableView:tableView];
     
     cell.detailTextView.attributedText = [self setHtmlStr:self.htmlString];
+
+    NSLog(@"-----------------------  %@ --------------------------", [self setHtmlStr:self.htmlString]);
+    [cell adjustCellWithString:self.htmlString];
+
     
     return cell;
     
@@ -291,16 +294,17 @@
     
 }
 
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 //    return  Fit375(560);
-    return kScreenWidth*1.8;
+    return kScreenWidth*1.7;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return [self CreateGoodsHeaderView];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return Fit(100);
+    return [LFGoodDetailCell cellHeightWithString:self.htmlString];
 }
 
 -(void)TapPushShopCarBtn{

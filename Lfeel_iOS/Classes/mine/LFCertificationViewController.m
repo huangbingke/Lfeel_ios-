@@ -24,6 +24,19 @@
 
 @implementation LFCertificationViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+   NSInteger isreal =  [[User getUseDefaultsOjbectForKey:@"isReal"] integerValue];
+    if (isreal == -1) {
+        SVShowError(@"审核中");
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
+    }
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -33,6 +46,7 @@
         [self HttpRequestChangeCenterMessage];
         
     } backAction:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

@@ -319,7 +319,7 @@
         @strongify(self, footer);
         [LFSettleCenterSelectPayTypeView showWithCompleteHandle:^(PayType payType) {
             self.payType = payType;
-            NSArray * arr = @[@"分期付款", @"支付宝", @"微信支付", @"银联支付"];
+            NSArray * arr = @[@"信用卡分期", @"支付宝", @"微信支付", @"银联支付"];
             footer.payTypeString = arr[payType];
         } selectedType:self.payType];
         

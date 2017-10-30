@@ -89,7 +89,7 @@
     [self.view endEditing:YES];
     [LFSettleCenterSelectPayTypeView showWithCompleteHandle:^(PayType payType) {
         self ->payType1 = payType;
-        NSArray * arr = @[@"分期付款", @"支付宝", @"微信支付", @"银联支付"];
+        NSArray * arr = @[@"信用卡分期", @"支付宝", @"微信支付", @"银联支付"];
         [self.list settitleLebelText:arr[payType1 + 1]] ;
         SLLog(payType);
     } selectedType:payType1 + 1 needFenQing:NO];

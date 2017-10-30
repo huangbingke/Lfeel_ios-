@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -482,9 +482,19 @@
                         <action selector="_next:" destination="iN0-l3-epB" eventType="touchUpInside" id="wvs-VM-gdC"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信用卡分期年利息8%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULY-7z-uJV">
+                    <rect key="frame" x="0.0" y="456" width="375" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="pkx-pP-yid"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="0.1281391285" blue="0.14585888759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="ULY-7z-uJV" secondAttribute="trailing" id="0FB-qL-TE7"/>
                 <constraint firstItem="L2f-Xh-xFw" firstAttribute="top" secondItem="6B6-I5-eGb" secondAttribute="bottom" id="1jk-mP-9OD"/>
                 <constraint firstItem="6B6-I5-eGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Ya-Fd-DYl"/>
                 <constraint firstItem="fTi-NG-Jjk" firstAttribute="width" secondItem="NvM-lP-Vfv" secondAttribute="width" id="46f-TR-3nu"/>
@@ -495,6 +505,7 @@
                 <constraint firstAttribute="trailing" secondItem="fTi-NG-Jjk" secondAttribute="trailing" id="E0u-tx-Zs3"/>
                 <constraint firstItem="tvc-FA-9bQ" firstAttribute="centerY" secondItem="NP7-WG-Bt4" secondAttribute="centerY" id="EgY-yb-qhT"/>
                 <constraint firstItem="NP7-WG-Bt4" firstAttribute="top" secondItem="fTi-NG-Jjk" secondAttribute="bottom" constant="15" id="FXO-AY-GSW"/>
+                <constraint firstItem="ULY-7z-uJV" firstAttribute="top" secondItem="NP7-WG-Bt4" secondAttribute="bottom" constant="20" id="HGe-D5-2OT"/>
                 <constraint firstAttribute="trailing" secondItem="L2f-Xh-xFw" secondAttribute="trailing" id="HtD-E2-ysM"/>
                 <constraint firstItem="fTi-NG-Jjk" firstAttribute="leading" secondItem="NvM-lP-Vfv" secondAttribute="trailing" constant="6" id="MLT-6u-1cw"/>
                 <constraint firstItem="NvM-lP-Vfv" firstAttribute="top" secondItem="OFT-OX-IJT" secondAttribute="bottom" constant="5" id="OLv-hm-11E"/>
@@ -510,6 +521,7 @@
                 <constraint firstItem="6B6-I5-eGb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fyJ-Pl-Z8c"/>
                 <constraint firstItem="NP7-WG-Bt4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="15" id="g12-iY-XhW"/>
                 <constraint firstItem="PJb-bP-ZSJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="k88-Wo-R0b"/>
+                <constraint firstItem="ULY-7z-uJV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="v08-DX-YWB"/>
                 <constraint firstAttribute="trailing" secondItem="sjT-oL-647" secondAttribute="trailing" id="xRa-6l-qWh"/>
                 <constraint firstItem="E0h-On-dco" firstAttribute="top" secondItem="NP7-WG-Bt4" secondAttribute="bottom" constant="80" id="zjW-qP-Vlp"/>
             </constraints>

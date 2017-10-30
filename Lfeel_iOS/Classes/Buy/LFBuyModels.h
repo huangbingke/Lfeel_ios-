@@ -24,7 +24,7 @@
 @property (nonatomic,   copy) NSString * goodsUrl;
 @property (nonatomic,   copy) NSString * goodsId;
 @property (nonatomic,   copy) NSString * sellingPrice;
-//@property (nonatomic,   copy) NSString * sellingPrice;
+@property (nonatomic,   copy) NSString * attribute;
 
 @property (nonatomic,   copy) NSString * goodsName;
 @property (nonatomic,   copy) NSString * goodsCartId;

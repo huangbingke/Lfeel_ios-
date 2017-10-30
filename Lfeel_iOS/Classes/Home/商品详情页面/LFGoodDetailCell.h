@@ -10,7 +10,8 @@
 
 @interface LFGoodDetailCell : SLBaseTableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextView *detailTextView;
+@property (weak, nonatomic) IBOutlet UILabel *detailTextView;
 
-
+- (void)adjustCellWithString:(NSString *)string;
++ (CGFloat)cellHeightWithString:(NSString *)string;
 @end
